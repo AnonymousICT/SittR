@@ -32,3 +32,6 @@ const UserJoiSchema = Joi.object().keys({
 	password: Joi.string().min(8).max(30).trim().required(),
 	email: Joi.string().email().trim().required()
 });
+
+const User = mongoose.model('user', userSchema);
+module.exports = { User, UserJoiSchema};
