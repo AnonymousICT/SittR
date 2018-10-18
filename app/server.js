@@ -18,8 +18,13 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.static('./public'));
 
-app.use('*', (req, res) => {
-	res.status(HTTP_STATUS_CODES.NOTFOUND).json({ error: 'Not Found.' });
+//routers
+app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
+
+
+app.use('*', function (req, res) {
+    res.status(HTTP_STATUS_CODES.NOT_FOUND).json({ error: 'Not Found.' });
 });
 
 module.exports = {
@@ -29,32 +34,39 @@ module.exports = {
 }
 
 function startServer(testEnv) {
-	return new Promise((resolve, reject) => {
-		let mongoUrl;
+    // Remember, because the process of starting/stopping a server takes time, it's preferrable to make
+    // this asynchronous, and return a promise that'll reject/resolve depending if the process is succesful.
 
-		if(testEnv){
-			mongoUrl = TEST_MONGO_URL;			
-		} else {
-			mongoUrl = MONGO_URL;
-		}
-		mongoose.connect(mongoUrl, { useNewUrlParser: true }, err => {
-			if (err) {
-				console.error(err);
-				return reject(err);
-			} else {
-				server = app.listen(PORT, () =>{
-					console.log(`Express server listening on http://localhost:${PORT}`);
-					resolve();
-				}).on('error', err => {
-					mongoose.disconnect();
-					console.error(err);
-					reject(err);
-				});
-			}
-		});
-	});
+    return new Promise((resolve, reject) => {
+        let mongoUrl;
+
+        if (testEnv) {
+            mongoUrl = TEST_MONGO_URL;
+        } else {
+            mongoUrl = MONGO_URL;
+        }
+        // Step 1: Attempt to connect to MongoDB with mongoose
+        mongoose.connect(mongoUrl, { useNewUrlParser: true }, err => {
+            if (err) {
+                // Step 2A: If there is an error starting mongo, log error, reject promise and stop code execution.
+                console.error(err);
+                return reject(err);
+            } else {
+                // Step 2B: Start Express server
+                server = app.listen(PORT, () => {
+                    // Step 3A: Log success message to console and resolve promise.
+                    console.log(`Express server listening on http://localhost:${PORT}`);
+                    resolve();
+                }).on('error', err => {
+                    // Step 3B: If there was a problem starting the Express server, disconnect from MongoDB immediately, log error to console and reject promise.
+                    mongoose.disconnect();
+                    console.error(err);
+                    reject(err);
+                });
+            }
+        });
+    });
 }
-
 function stopServer () {
 	return mongoose
 		.disconnect()
