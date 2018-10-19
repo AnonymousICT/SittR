@@ -12,7 +12,20 @@ petRouter.post('/', jwtPassportMiddleware, (req, res) => {
     const newPet = {
         user: req.user.id,
         petName: req.body.petName,
-        petType: req.body.petType
+        petType: req.body.petType,
+        petBreed: req.body.petBreed,
+        petAge: req.body.petAge,
+        petSize: req.body.petSize,
+        petWeight: req.body.petWeight,
+        petActivityLevel: req.body.petActivityLevel,
+        petIntact: req.body.petIntact,
+        petDietRestrictions: req.body.petDietRestrictions,
+        petBehavior: req.body.petBehavior
+        // petBehavior.dogs: req.body.petBehavior.dogs,
+        // petBehavior.cats: req.body.petBehavior.cats,
+        // petBehavior.children: req.body.petBehavior.children,
+        // petBehavior.miscPets: req.body.petBehavior.miscPets,
+        // petBehavior.other: req.body.petBehavior.other
     };
     const validation = Joi.validate(newPet, PetJoiSchema);
     if (validation.error) {
@@ -71,7 +84,20 @@ petRouter.get('/:petid', (req, res) => {
 petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
     const petUpdate = {
         petName: req.body.petName,
-        petType: req.body.petType
+        petType: req.body.petType,
+        petBreed: req.body.petBreed,
+        petAge: req.body.petAge,
+        petSize: req.body.petSize,
+        petWeight: req.body.petWeight,
+        petActivityLevel: req.body.petActivityLevel,
+        petIntact: req.body.petIntact,
+        petDietRestrictions: req.body.petDietRestrictions,
+        petBehavior: req.body.petBehavior
+        // petBehavior.dogs: req.body.petBehavior.dogs,
+        // petBehavior.cats: req.body.petBehavior.cats,
+        // petBehavior.children: req.body.petBehavior.children,
+        // petBehavior.miscPets: req.body.petBehavior.miscPets,
+        // petBehavior.other: req.body.petBehavior.other
     }
     const validation = Joi.validation(petUpdate, PetJoiSchema);
     if (validation.error) {

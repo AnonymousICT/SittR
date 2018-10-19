@@ -9,31 +9,16 @@ const petSchema = new mongoose.Schema({
 	petBreed: {type: String}, //mixed, corgis, etc
 	petAge: {type: Number, required: true},
 	petSize: {type: String, required:true}, //xs, s, m, l, xl
-	petWeight: {type: Number}, //type  in that number
-	petActivityLevel: {type: Number}, //1 = turtle 10 = rocket ship 
+	petWeight: {type: Number}, //type in that number
+	petActivityLevel: {type: Number, required: true}, //1 = turtle 10 = rocket ship 
 	petIntact: {type: String, required: true }, //Intact Male, Intact Female, Neutered and Spayed
 	petDietRestrictions: {type: String}, //My dog is allergic to carrots or my cat eats only wet food
 	petBehavior: {
 		dogs: {type: String},
-		cats: {type: String}.
+		cats: {type: String},
 		children: {type: String},
 		miscPets: {type: String}, //birds, pocket pets, fish etc.
 		other: {type: String} //my dog eats poop, my cat runs out the front door etc.
-	},
-	petMedical: {
-		Insurance: {type: String},
-		Vaccines: {type: String}, //this needs to be updated
-		Medication: {
-			fleas: {type: Boolean, required: true},
-			ticks: {type: Boolean, required: true},
-			heartworm: {type: Boolean, required: true},
-			other: {type:String}
-		},
-		VetInfo: {
-			Name: {type: String, required:true},
-			Address: {type:String, required:true},
-			Phone: {type:String, required:true}
-		}
 	}
 })
 
@@ -57,7 +42,7 @@ petSchema.methods.serialize = function () {
 		petActivityLevel: this.petActivityLevel,
 		petIntact: this.petIntact,
 		petDietRestrictions: this.petDietRestrictions,
-
+		petBehavior: this.petBehavior
 	};
 };
 
@@ -69,9 +54,15 @@ const PetJoiSchema = Joi.object().keys({
 	petAge: Joi.number().min(1).required(),
 	petSize: Joi.string().min(1).required(),
 	petWeight: Joi.number().optional(),
-	petActivityLevel: Joi.number().optional(),
+	petActivityLevel: Joi.number().min(1).required(),
 	petIntact: Joi.string().min(1).required(),
-	petDietRestrictions: Joi.string().optional()
+	petDietRestrictions: Joi.string().optional(),
+	petBehavior: Joi.object().optional()
+	// petBehavior.dogs: Joi.string().optional(),
+	// petBehavior.cats: Joi.string().optional(),
+	// petBehavior.children: Joi.string().optional(),
+	// petBehavior.miscPets: Joi.string().optional(),
+	// petBehavior.other: Joi.string().optional()
 
 })
 
