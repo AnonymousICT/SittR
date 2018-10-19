@@ -3,9 +3,9 @@ const Joi = require('joi');
 
 
 const petSchema = new mongoose.Schema({
-	user: {type: mongoose.Schema.Types.ObjectID, ref:'user'}
-	petName: {type: String, required: true},
-	petType: {type: String, required: true}
+	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
+	petName: { type: String, required: true },
+	petType: { type: String, required: true }
 })
 
 petSchema.methods.serialize = function () {
@@ -14,7 +14,7 @@ petSchema.methods.serialize = function () {
 	if (typeof this.user.serialize === 'function') {
 		user = this.user.serialize();
 	} else {
-		user = this.user
+		user = this.user;
 	}
 	return {
 		id: this._id,
@@ -24,11 +24,12 @@ petSchema.methods.serialize = function () {
 	};
 };
 
-const petJoiSchema = Joi.object().keys({
+const PetJoiSchema = Joi.object().keys({
 	user: Joi.string().optional(),
 	petName: Joi.string().min(1).required(),
 	petType: Joi.string().min(1).required(),
 })
 
 const Pet = mongoose.model('Pet', petSchema);
-module.exports = { Pet, petJoiSchema }
+
+module.exports = { Pet, PetJoiSchema }

@@ -6,6 +6,7 @@ const passport = require('passport');
 const { PORT, HTTP_STATUS_CODES, MONGO_URL, TEST_MONGO_URL } = require('./config');
 const { authRouter } = require('./auth/auth.router');
 const { userRouter } = require('./user/user.router');
+const { petRouter } = require('./pet/pet.router');
 const { localStrategy, jwtStrategy } = require('./auth/auth.strategy');
 
 let server;
@@ -21,7 +22,7 @@ app.use(express.static('./public'));
 //routers
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
-app.use('/api/pet', petRouter)
+app.use('/api/pet', petRouter);
 
 
 app.use('*', function (req, res) {
@@ -35,9 +36,6 @@ module.exports = {
 }
 
 function startServer(testEnv) {
-    // Remember, because the process of starting/stopping a server takes time, it's preferrable to make
-    // this asynchronous, and return a promise that'll reject/resolve depending if the process is succesful.
-
     return new Promise((resolve, reject) => {
         let mongoUrl;
 
@@ -46,20 +44,15 @@ function startServer(testEnv) {
         } else {
             mongoUrl = MONGO_URL;
         }
-        // Step 1: Attempt to connect to MongoDB with mongoose
         mongoose.connect(mongoUrl, { useNewUrlParser: true }, err => {
             if (err) {
-                // Step 2A: If there is an error starting mongo, log error, reject promise and stop code execution.
                 console.error(err);
                 return reject(err);
             } else {
-                // Step 2B: Start Express server
                 server = app.listen(PORT, () => {
-                    // Step 3A: Log success message to console and resolve promise.
                     console.log(`Express server listening on http://localhost:${PORT}`);
                     resolve();
                 }).on('error', err => {
-                    // Step 3B: If there was a problem starting the Express server, disconnect from MongoDB immediately, log error to console and reject promise.
                     mongoose.disconnect();
                     console.error(err);
                     reject(err);
@@ -68,6 +61,7 @@ function startServer(testEnv) {
         });
     });
 }
+
 function stopServer () {
 	return mongoose
 		.disconnect()
