@@ -8,7 +8,7 @@ const { PetMedical, PetMedicalJoiSchema } = require('./petMedical.model.js');
 
 petMedicalRouter.post('/', jwtPassportMiddleware, (req, res) => {
 	const newPetMedical = {
-		pet: req.pet.id,
+		user: req.user.id,
 		dapp: req.body.dapp,
 		rabies: req.body.rabies,
 		leptospirosis: req.body.leptospirosis,
@@ -36,8 +36,8 @@ petMedicalRouter.post('/', jwtPassportMiddleware, (req, res) => {
 
 //retreive the pet's medical record
 petMedicalRouter.get('/', jwtPassportMiddleware, (req, res) => {
-	PetMedical.find({pet: req.pet.id})
-		.populate('pet')
+	PetMedical.find({user: req.user.id})
+		.populate('user')
 		.then(petsMedical => {
 			return res.status(HTTP_STATUS_CODES.OK).json( petsMedical.map(petMedical => petMedical.serialize())
 			);

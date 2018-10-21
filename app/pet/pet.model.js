@@ -58,12 +58,6 @@ const PetJoiSchema = Joi.object().keys({
 	petIntact: Joi.string().min(1).required(),
 	petDietRestrictions: Joi.string().optional(),
 	petBehavior: Joi.object().optional()
-	// petBehavior.dogs: Joi.string().optional(),
-	// petBehavior.cats: Joi.string().optional(),
-	// petBehavior.children: Joi.string().optional(),
-	// petBehavior.miscPets: Joi.string().optional(),
-	// petBehavior.other: Joi.string().optional()
-
 })
 
 const Pet = mongoose.model('Pet', petSchema);

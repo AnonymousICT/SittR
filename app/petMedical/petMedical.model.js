@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const petMedicalSchema = new mongoose.Schema({
-	//petid
-	pet: {type: mongoose.Schema.Types.ObjectID, ref:'pet'},
+	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
 	//required dog vaccines
 	dapp: {type: Boolean, required: true},
 	rabies: {type: Boolean, required: true},
@@ -19,16 +18,16 @@ const petMedicalSchema = new mongoose.Schema({
 })
 
 petMedicalSchema.methods.serialize = function () {
-	let pet;
+	let user;
 
-	if (typeof this.pet.serialize === 'function') {
-		pet = this.pet.serialize();
+	if (typeof this.user.serialize === 'function') {
+		user = this.user.serialize();
 	} else {
-		pet = this.pet;
+		user = this.user;
 	}
 	return {
 		id: this._id,
-		pet: pet,
+		user: user,
 		dapp: this.dapp,
 		rabies: this.rabies,
 		leptospirosis: this.leptospirosis,
@@ -43,7 +42,7 @@ petMedicalSchema.methods.serialize = function () {
 };
 
 const PetMedicalJoiSchema = Joi.object().keys({
-	pet: Joi.string().optional(),
+	user: Joi.string().optional(),
 	dapp: Joi.boolean().required(),
 	rabies: Joi.boolean().required(),
 	leptospirosis: Joi.boolean().required(),
@@ -57,4 +56,5 @@ const PetMedicalJoiSchema = Joi.object().keys({
 })
 
 const PetMedical = mongoose.model('PetMedical' , petMedicalSchema);
+
 module.exports = { PetMedical, PetMedicalJoiSchema }

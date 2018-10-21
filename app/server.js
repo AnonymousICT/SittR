@@ -7,6 +7,8 @@ const { PORT, HTTP_STATUS_CODES, MONGO_URL, TEST_MONGO_URL } = require('./config
 const { authRouter } = require('./auth/auth.router');
 const { userRouter } = require('./user/user.router');
 const { petRouter } = require('./pet/pet.router');
+const { vetRouter } = require('./vet/vet.router');
+const { petMedicalRouter} = require('./petMedical/petMedical.router');
 const { localStrategy, jwtStrategy } = require('./auth/auth.strategy');
 
 let server;
@@ -23,6 +25,8 @@ app.use(express.static('./public'));
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/pet', petRouter);
+app.use('/api/vet', vetRouter);
+app.use('/api/petMedical', petMedicalRouter);
 
 
 app.use('*', function (req, res) {

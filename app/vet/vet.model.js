@@ -17,7 +17,7 @@ vetSchema.methods.serialize = function () {
 		user = this.user;
 	}
 	return {
-		id: this._id,
+		vetId: this._id,
 		user: user,
 		vetName: this.vetName,
 		vetAddress: this.vetAddress,
@@ -29,7 +29,7 @@ const VetJoiSchema = Joi.object().keys({
 	user: Joi.string().optional(),
 	vetName: Joi.string().min(1).required(),
 	vetAddress: Joi.string().min(1).required(),
-	vetPhone: Joi.number().min(1).required()
+	vetPhone: Joi.string().min(1).required()
 })
 
 const Vet = mongoose.model('Vet' , vetSchema);

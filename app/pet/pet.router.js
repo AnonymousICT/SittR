@@ -21,11 +21,6 @@ petRouter.post('/', jwtPassportMiddleware, (req, res) => {
         petIntact: req.body.petIntact,
         petDietRestrictions: req.body.petDietRestrictions,
         petBehavior: req.body.petBehavior
-        // petBehavior.dogs: req.body.petBehavior.dogs,
-        // petBehavior.cats: req.body.petBehavior.cats,
-        // petBehavior.children: req.body.petBehavior.children,
-        // petBehavior.miscPets: req.body.petBehavior.miscPets,
-        // petBehavior.other: req.body.petBehavior.other
     };
     const validation = Joi.validate(newPet, PetJoiSchema);
     if (validation.error) {
@@ -93,11 +88,6 @@ petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
         petIntact: req.body.petIntact,
         petDietRestrictions: req.body.petDietRestrictions,
         petBehavior: req.body.petBehavior
-        // petBehavior.dogs: req.body.petBehavior.dogs,
-        // petBehavior.cats: req.body.petBehavior.cats,
-        // petBehavior.children: req.body.petBehavior.children,
-        // petBehavior.miscPets: req.body.petBehavior.miscPets,
-        // petBehavior.other: req.body.petBehavior.other
     }
     const validation = Joi.validation(petUpdate, PetJoiSchema);
     if (validation.error) {
