@@ -32,6 +32,6 @@ const VetJoiSchema = Joi.object().keys({
 	vetPhone: Joi.string().min(1).required()
 })
 
-const Vet = mongoose.model('Vet' , vetSchema);
+const Vet = mongoose.model('vet' , vetSchema);
 
 module.exports = { Vet, VetJoiSchema }

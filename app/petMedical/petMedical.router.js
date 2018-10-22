@@ -9,6 +9,7 @@ const { PetMedical, PetMedicalJoiSchema } = require('./petMedical.model.js');
 petMedicalRouter.post('/', jwtPassportMiddleware, (req, res) => {
 	const newPetMedical = {
 		user: req.user.id,
+		pet: req.pet.id,
 		dapp: req.body.dapp,
 		rabies: req.body.rabies,
 		leptospirosis: req.body.leptospirosis,

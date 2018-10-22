@@ -43,7 +43,7 @@ const VisitJoiSchema = Joi.object().keys({
 	visitSummary: Joi.string().optional(),
 })
 
-const Visit = mongoose.model('Visit', visitSchema);
+const Visit = mongoose.model('visit', visitSchema);
 
 module.exports = { Visit, VisitJoiSchema }
 

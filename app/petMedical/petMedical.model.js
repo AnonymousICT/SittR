@@ -55,6 +55,6 @@ const PetMedicalJoiSchema = Joi.object().keys({
 	other: Joi.string().optional()
 })
 
-const PetMedical = mongoose.model('PetMedical' , petMedicalSchema);
+const PetMedical = mongoose.model('petMedical' , petMedicalSchema);
 
 module.exports = { PetMedical, PetMedicalJoiSchema }

@@ -54,7 +54,7 @@ vetRouter.get('/vets', (req, res)=>{
         });
 });
 
-//retrieve svecific vet by id
+//retrieve specific vet by id
 vetRouter.get('/:vetid', (req, res) => {
     Vet.findByID(req.params.vetid)
         .populate('user')

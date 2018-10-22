@@ -60,6 +60,6 @@ const PetJoiSchema = Joi.object().keys({
 	petBehavior: Joi.object().optional()
 })
 
-const Pet = mongoose.model('Pet', petSchema);
+const Pet = mongoose.model('pet', petSchema);
 
 module.exports = { Pet, PetJoiSchema }
