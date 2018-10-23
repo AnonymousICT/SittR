@@ -14,9 +14,9 @@ const petSchema = new mongoose.Schema({
 	petIntact: {type: String, required: true }, //Intact Male, Intact Female, Neutered and Spayed
 	petDietRestrictions: {type: String}, //My dog is allergic to carrots or my cat eats only wet food
 	petBehavior: {
-		dogs: {type: String},
-		cats: {type: String},
-		children: {type: String},
+		dogs: {type: String}, //are they good with other dogs
+		cats: {type: String}, 
+		children: {type: String}, 
 		miscPets: {type: String}, //birds, pocket pets, fish etc.
 		other: {type: String} //my dog eats poop, my cat runs out the front door etc.
 	}
@@ -58,8 +58,8 @@ const PetJoiSchema = Joi.object().keys({
 	petIntact: Joi.string().min(1).required(),
 	petDietRestrictions: Joi.string().optional(),
 	petBehavior: Joi.object().optional()
-})
+});
 
 const Pet = mongoose.model('pet', petSchema);
 
-module.exports = { Pet, PetJoiSchema }
+module.exports = { Pet, PetJoiSchema };

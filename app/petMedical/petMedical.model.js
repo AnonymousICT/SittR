@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const petMedicalSchema = new mongoose.Schema({
-	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
+	// user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
+	pet: {type: mongoose.Schema.Types.ObjectId, ref:'pet'},
+
 	//required dog vaccines
 	dapp: {type: Boolean, required: true},
 	rabies: {type: Boolean, required: true},
@@ -18,16 +20,17 @@ const petMedicalSchema = new mongoose.Schema({
 })
 
 petMedicalSchema.methods.serialize = function () {
-	let user;
+	// let user;
 
-	if (typeof this.user.serialize === 'function') {
-		user = this.user.serialize();
-	} else {
-		user = this.user;
-	}
+	// if (typeof this.user.serialize === 'function') {
+	// 	user = this.user.serialize();
+	// } else {
+	// 	user = this.user;
+	// }
 	return {
 		id: this._id,
-		user: user,
+		// user: user,
+		pet: this.pet,
 		dapp: this.dapp,
 		rabies: this.rabies,
 		leptospirosis: this.leptospirosis,
@@ -42,7 +45,8 @@ petMedicalSchema.methods.serialize = function () {
 };
 
 const PetMedicalJoiSchema = Joi.object().keys({
-	user: Joi.string().optional(),
+	// user: Joi.string().optional(),
+	pet: Joi.string().optional(),
 	dapp: Joi.boolean().required(),
 	rabies: Joi.boolean().required(),
 	leptospirosis: Joi.boolean().required(),

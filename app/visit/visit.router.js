@@ -4,18 +4,24 @@ const visitRouter = express.Router();
 
 const { HTTP_STATUS_CODES } = require('../config.js');
 const { jwtPassportMiddleware } = require('../auth/auth.strategy');
-const { Visit, VisitJoiSchema } = require('./pet.model.js');
+const { Visit, VisitJoiSchema } = require('./visit.model.js');
 
+
+//creating a user's new visit plan
 visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
 	const newVisit = {
-		user:req.user.id,
-		visitCreationDate: req.body.visitCreationDate,
+		user: req.user.id,
+		// visitCreationDate: req.body.visitCreationDate,
 		visitDateStart: req.body.visitDateStart,
 		visitDateEnd: req.body.visitDateEnd,
 		visitLocation: req.body.visitLocation,
 		visitPrice: req.body.visitPrice,
 		visitCareInstructions: req.body.visitCareInstructions,
-		visitSummary: req.body.visitSummary
+		visitSummary: req.body.visitSummary,
+		visitDesignatedUser: req.body.visitDesignatedUser,
+		visitAccepted: req.body.visitAccepted,
+		visitInProgress: req.body.visitInProgress,
+		visitCompleted: req.body.visitCompleted
 	};
 	const validation = Joi.validate(newVisit, VisitJoiSchema);
 	if(validation.error) {
@@ -56,6 +62,7 @@ visitRouter.get('/', jwtPassportMiddleware, (req, res) => {
 		});
 });
 
+//retrieve specific visit by id
 visitRouter.get('/:visitid', (req, res) => {
 	Visit.findByID(req.params.visitid)
 		.populate('user')
@@ -67,15 +74,19 @@ visitRouter.get('/:visitid', (req, res) => {
 		});
 });
 
+//update vists by id
 visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
 	const visitUpdate = {
-		visitCreationDate: req.body.visitCreationDate,
 		visitDateStart: req.body.visitDateStart,
 		visitDateEnd: req.body.visitDateEnd,
 		visitLocation: req.body.visitLocation,
 		visitPrice: req.body.visitPrice,
 		visitCareInstructions: req.body.visitCareInstructions,
-		visitSummary: req.body.visitSummary
+		visitSummary: req.body.visitSummary,
+		visitDesignatedUser: req.body.visitDesignatedUser,
+		visitAccepted: req.body.visitAccepted,
+		visitInProgress: req.body.visitInProgress,
+		visitCompleted: req.body.visitCompleted
 	}
 	const validation = Joi.validation(visitUpdate, VisitJoiSchema);
 	if (validation.error) {
@@ -90,6 +101,7 @@ visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
         });
 });
 
+//delete vist plan by id
 visitRouter.delete('/:visitid', jwtPassportMiddleware, (req, res) => {
 	Visit.findByIDAndDelete(req.params.visitid)
         .then(() => {
