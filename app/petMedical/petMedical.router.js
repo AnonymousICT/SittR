@@ -8,8 +8,8 @@ const { PetMedical, PetMedicalJoiSchema } = require('./petMedical.model.js');
 
 petMedicalRouter.post('/', jwtPassportMiddleware, (req, res) => {
 	const newPetMedical = {
-		// user: req.user.id,
-		pet: req.body.pet,
+		// user: req.user.id, 
+		pet: req.body.pet, 
 		dapp: req.body.dapp,
 		rabies: req.body.rabies,
 		leptospirosis: req.body.leptospirosis,
@@ -35,13 +35,13 @@ petMedicalRouter.post('/', jwtPassportMiddleware, (req, res) => {
 		});
 });
 
-//retreive the pet's medical record
-petMedicalRouter.get('/petMedicalid', jwtPassportMiddleware, (req, res) => {
-	PetMedical.find({pet: req.params.petid}) 
-		.populate('pet')
-		.then(petsMedical => {
-			return res.status(HTTP_STATUS_CODES.OK).json( petsMedical.map(petMedical => petMedical.serialize())
-			);
+//retreive the specific pet's medical record 
+petMedicalRouter.get('/:petMedicalid', (req, res) => {
+	console.log(req.params);
+	PetMedical.findById(req.params.petMedicalid) 
+		.populate('petMedical')
+		.then(petMedical => {
+			return res.status(HTTP_STATUS_CODES.OK).json( petMedical.serialize());
 		})
 		.catch(error => {
 			return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);

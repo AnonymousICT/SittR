@@ -9,7 +9,7 @@ const { Report , ReportJoiSchema } = require('./report.model.js');
 reportRouter.post('/', jwtPassportMiddleware, (req, res)=> {
 	const newReport = {
 		visit: req.body.visit,
-		visitDesignatedUser: req.body.visitDesignatedUser,
+		// visitDesignatedUser: req.body.visitDesignatedUser,
 		reportStatus: req.body.reportStatus,
 		reportSummary: req.body.reportSummary,
 		reportExtraCosts: req.body.reportExtraCosts,
@@ -30,7 +30,7 @@ reportRouter.post('/', jwtPassportMiddleware, (req, res)=> {
 });
 
 //retrieve all reports
-reportRouter.get('/', jwtPassportMiddleware, (req,res)=> {
+reportRouter.get('/:visitid', jwtPassportMiddleware, (req,res)=> {
 	Report.find({visit:req.params.visitid})
 		.populate('visit')
 		.then(reports => {
@@ -53,7 +53,6 @@ reportRouter.get('/:reportid', (req, res) => {
             return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
 })
-//maybe a 3rd get?
 
 //update report by id
 reportRouter.put('/:reportid', jwtPassportMiddleware, (req, res)=> {

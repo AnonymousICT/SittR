@@ -3,11 +3,11 @@ const Joi = require('joi');
 
 const visitSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
-	// visitCreationDate: { type: Date, default: Date.now },
-	// visitDateStart: { type: Date, required: true },
-	// visitDateEnd: {type: Date, required: true }, 
-	visitDateStart: { type: String, required: true},
-	visitDateEnd: {type: String, required: true},
+	timestamps: {type: Date, default: Date.now},
+	visitDateStart: { type: Date, required: true },
+	visitDateEnd: {type: Date, required: true }, 
+	// visitDateStart: { type: String, required: true},
+	// visitDateEnd: {type: String, required: true},
 	visitLocation: { type: String, required: true },
 	visitPrice: { type: Number, required: true },
 	visitCareInstructions: { type: String },
@@ -29,7 +29,7 @@ visitSchema.methods.serialize = function () {
 	return {
 		id:this._id,
 		user: user,
-		// visitCreationDate: this.visitCreationDate,
+		timestamps: this.timestamps,
 		visitDateStart: this.visitDateStart,
 		visitDateEnd: this.visitDateEnd,
 		visitLocation: this.visitLocation,
@@ -45,11 +45,11 @@ visitSchema.methods.serialize = function () {
 
 const VisitJoiSchema = Joi.object().keys({
 	user: Joi.string().optional(),
-	// visitCreationDate: Joi.date().iso().timestamp('javascript'),
-	// visitDateStart: Joi.date().min('1-1-2018').iso().required(),
-	// visitDateEnd: Joi.date().min(Joi.ref('visitDateStart')).iso().required(),
-	visitDateStart: Joi.string().min(1).required(),
-	visitDateEnd: Joi.string().min(1).required(),
+	timestamps: Joi.date().timestamp('javascript'),
+	visitDateStart: Joi.date().min('1-1-2018').required(),
+	visitDateEnd: Joi.date().min(Joi.ref('visitDateStart')).required(),
+	// visitDateStart: Joi.string().min(1).required(),
+	// visitDateEnd: Joi.string().min(1).required(),
 	visitLocation: Joi.string().min(1).required(),
 	visitPrice: Joi.number().min(1).required(),
 	visitCareInstructions: Joi.string().optional(),
@@ -64,19 +64,3 @@ const VisitJoiSchema = Joi.object().keys({
 const Visit = mongoose.model('visit', visitSchema);
 
 module.exports = { Visit, VisitJoiSchema }
-
-// visitCreationDate: 
-// visitDateStart:
-// visitDateEnd:
-// visitLocation:
-// visitPrice:
-// visitCareInstructions:
-// visitSummary:
-
-// "visitCreationDate": "",
-// "visitDate": "",
-// "visitDateEnd":"",
-// "visitLocation": "",
-// "visitPrice": "",
-// "visitCareInstructions": "",
-// "visitSummary": ""

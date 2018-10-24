@@ -65,7 +65,7 @@ petRouter.get('/pets', (req, res)=>{
 
 //retrieve specific pet by id
 petRouter.get('/:petid', (req, res) => {
-    Pet.findByID(req.params.petid)
+    Pet.findById(req.params.petid)
         .populate('user')
         .then(pet => {
             return res.status(HTTP_STATUS_CODES.OK).json(pet.serialize());
@@ -111,7 +111,7 @@ petRouter.delete('/:petid', jwtPassportMiddleware, (req, res)=>{
         .catch(error => {
             return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
-})
+});
 
 
 module.exports = { petRouter };

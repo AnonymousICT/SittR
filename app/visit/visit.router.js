@@ -11,7 +11,7 @@ const { Visit, VisitJoiSchema } = require('./visit.model.js');
 visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
 	const newVisit = {
 		user: req.user.id,
-		// visitCreationDate: req.body.visitCreationDate,
+		timestamps: req.body.timestamps,
 		visitDateStart: req.body.visitDateStart,
 		visitDateEnd: req.body.visitDateEnd,
 		visitLocation: req.body.visitLocation,

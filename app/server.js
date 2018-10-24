@@ -9,6 +9,7 @@ const { userRouter } = require('./user/user.router');
 const { petRouter } = require('./pet/pet.router');
 const { vetRouter } = require('./vet/vet.router');
 const { visitRouter } = require('./visit/visit.router');
+const { reportRouter } = require('./report/report.router');
 const { petMedicalRouter} = require('./petMedical/petMedical.router');
 const { localStrategy, jwtStrategy } = require('./auth/auth.strategy');
 
@@ -28,6 +29,7 @@ app.use('/api/user', userRouter);
 app.use('/api/pet', petRouter);
 app.use('/api/vet', vetRouter);
 app.use('/api/visit', visitRouter);
+app.use('/api/report', reportRouter);
 app.use('/api/petMedical', petMedicalRouter);
 
 
