@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="grey">
+<body>
 	<h1>SittR</h1>
 	<main>
 		<section id="default-menu" hidden>
@@ -15,8 +15,16 @@
 			<h4>To set up your pet's next fur-cation, please <a href="/auth/login.html">Log In</a></h4>
 		</section>
 		<section id="auth-menu" hidden>
-			<button id="logout-btn">Logout</button>
+			<h3 id="nav-greeting">Welcome User</h3>
+			<nav>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="/profile/detail.html">Your Profile</a></nav></li>
+					<li><button id="logout-btn">Logout</button></li>
+				</ul>
+			</nav>
             <h4><a href="/visit/create.html">Create New Visit Plan</a></h4>
+            <h4><a href="/host/detail.html">Host a Pet's Stay</a></h4>
 		</section>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

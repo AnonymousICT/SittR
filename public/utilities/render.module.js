@@ -1,5 +1,2 @@
-window.RENDER_MODULE = {
-	renderVisitList,
-	renderVisitDetails,
-	renderEditableVisit,
-}
+const RENDER_MODULE = {};
+window.RENDER_MODULE = RENDER_MODULE;

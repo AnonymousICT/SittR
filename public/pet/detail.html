@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SittR</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+	<h1>SittR</h1>
+	<main>
+		<h3 id="nav-greeting">Welcome User</h3>
+		<nav>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="/profile/detail.html">Your Profile</a></nav></li>
+					<li><button id="logout-btn">Logout</button></li>
+				</ul>
+			</nav>
+		<!-- specific pet profile
+		petName: { type: String, required: true }, //Max, Rex, etc.
+		petType: { type: String, required: true }, //for this MVP cats or dogs
+		petBreed: {type: String}, //mixed, corgis, etc
+		petAge: {type: Number, required: true},
+		petSize: {type: String, required:true}, //xs, s, m, l, xl
+		petWeight: {type: Number}, //type in that number
+		petActivityLevel: {type: Number, required: true}, //1 = turtle 10 = rocket ship 
+		petIntact: {type: String, required: true }, //Intact Male, Intact Female, Neutered and Spayed
+		petDietRestrictions: {type: String}, //My dog is allergic to carrots or my cat eats only wet food
+		petBehavior: {
+			dogs: {type: String}, //are they good with other dogs
+			cats: {type: String}, 
+			children: {type: String}, 
+			miscPets: {type: String}, //birds, pocket pets, fish etc.
+			other: {type: String} //my dog eats poop, my cat runs out the front door etc.
+		} -->
+
+		<section id="pet-profile">
+			<ul>
+				<li>pet Name</li>
+				<li>Type</li>
+				<li>Breed</li>
+				<li>Age</li>
+				<li>Size</li>
+				<li>Weight</li>
+				<li>Activity Level</li>
+				<li>Are they intact?</li>
+				<li>Dietary restrictions</li>
+				<li>Good with other dogs?</li>
+				<li>Good with other cats?</li>
+				<li>Good with other children?</li>
+				<li>Good with other misc pets?</li>
+				<li>Other personality quirks</li>
+			</ul>
+		</section>
+	</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../utilities/cache.module.js"></script>
+<script type="text/javascript" src="detail.page.js"></script>
+</body>
+</html>

@@ -6,6 +6,10 @@
     background: black;
     color: #FF9800;
 }
+html {
+    font-family: 'Roboto Mono', monospace, Arial, Helvetica, sans-serif;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -14,11 +18,4 @@ body {
 }
 li {
 	list-style: none;
-}
-.grey {
-
-}
-
-.box {
-
 }

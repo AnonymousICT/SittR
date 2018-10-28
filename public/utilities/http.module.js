@@ -1,4 +1,4 @@
-window.HTTP_MODULE = {
+const HTTP_MODULE = {
     signupUser,
     loginUser,
     getUserPets,
@@ -25,6 +25,9 @@ window.HTTP_MODULE = {
 	updateReport,
 	deleteReport
 };
+
+window.HTTP_MODULE = HTTP_MODULE;
+
 //user stuff
 function signupUser(options) {
     const { userData, onSuccess, onError } = options;
@@ -86,7 +89,6 @@ function getPetById(options) {
 	const { petId, onSuccess } = options;
 	$.getJSON(`/api/pet/${petId}`, onSuccess);
 }
-
 
 function createPet(options) {
 	const {jwtToken, newPet, onSuccess, onError } = options;
