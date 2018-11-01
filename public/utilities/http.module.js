@@ -10,6 +10,7 @@ const HTTP_MODULE = {
 	createPetMedical,
 	updatePetMedical,
 	deletePetMedical,
+    getUserVet,
     getVetById,
     createVet,
     updateVet,
@@ -23,10 +24,30 @@ const HTTP_MODULE = {
 	getReportById,
 	createReport,
 	updateReport,
-	deleteReport
+	deleteReport,
+    onLogoutBtnClick,
+    updateAuthenticatedUI
 };
 
 window.HTTP_MODULE = HTTP_MODULE;
+
+function onLogoutBtnClick(event) {
+    const confirmation = confirm('Are you sure you want to logout?');
+    if (confirmation) {
+        CACHE.deleteAuthenticatedUserFromCache();
+        window.open('/auth/login.html', '_self');
+    }
+}
+
+function updateAuthenticatedUI() {
+    const authUser = CACHE.getAuthenticatedUserFromCache();
+    if (authUser) {
+        STATE.authUser = authUser;
+       $('.user-profile').html(`<li class="user-profile"><a href="/profile/detail.html">${authUser.name}'s profile</a></li>`);
+       $('.user-email').html(`<p>Your email: ${authUser.email}</p>`)
+    } 
+}
+
 
 //user stuff
 function signupUser(options) {
@@ -136,10 +157,11 @@ function updatePet(options) {
 function deletePet(options) {
 	const {petId, jwtToken, onSuccess, onError} = options;
 	$.ajax({
-		type: 'DELETE',
+		type: 'delete',
         url: `/api/pet/${petId}`,
         contentType: 'application/json',
         dataType: 'json',
+        data: undefined,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
         },
@@ -152,6 +174,7 @@ function deletePet(options) {
         }
 	})
 }
+
 //pet medical stuff
 function getPetMedicalById(options) {
 	const{ petMedical, onSuccess } = options;
@@ -220,6 +243,27 @@ function deletePetMedical(options) {
 }
 
 //vet stuff
+function getUserVet(options) {
+    const { jwtToken, onSuccess, onError } = options;
+    $.ajax({
+        type: 'GET',
+        url: '/api/vet',
+        contentType: 'application/json',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+        },
+        success: onSuccess,
+        error: err => {
+            console.error(err);
+            if(onError) {
+                onError(err);
+            }
+        }
+    })
+}
+
+
 function getVetById(options) {
 	const{ vetId, onSuccess} = options;
 	$.getJSON(`/api/vet/${vetId}`, onSuccess);

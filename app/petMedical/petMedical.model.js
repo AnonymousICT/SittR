@@ -6,16 +6,16 @@ const petMedicalSchema = new mongoose.Schema({
 	pet: {type: mongoose.Schema.Types.ObjectId, ref:'pet'},
 
 	//required dog vaccines
-	dapp: {type: Boolean, required: true},
-	rabies: {type: Boolean, required: true},
-	leptospirosis: {type: Boolean, required: true},
-	lyme: {type: Boolean, required: true},
-	canineInfluenza: {type: Boolean, required: true},
-	bordetella: {type: Boolean, required: true},
+	dapp: {type: Boolean},
+	rabies: {type: Boolean},
+	leptospirosis: {type: Boolean},
+	lyme: {type: Boolean},
+	canineInfluenza: {type: Boolean},
+	bordetella: {type: Boolean},
 	//required medicine
-	fleas: {type: Boolean, required: true},
-	ticks: {type: Boolean, required: true},
-	heartworm: {type: Boolean, required: true},
+	fleas: {type: Boolean},
+	ticks: {type: Boolean},
+	heartworm: {type: Boolean},
 	other: {type:String}
 })
 
@@ -47,15 +47,15 @@ petMedicalSchema.methods.serialize = function () {
 const PetMedicalJoiSchema = Joi.object().keys({
 	// user: Joi.string().optional(),
 	pet: Joi.string().optional(),
-	dapp: Joi.boolean().required(),
-	rabies: Joi.boolean().required(),
-	leptospirosis: Joi.boolean().required(),
-	lyme: Joi.boolean().required(),
-	canineInfluenza: Joi.boolean().required(),
-	bordetella: Joi.boolean().required(),
-	fleas: Joi.boolean().required(),
-	ticks: Joi.boolean().required(),
-	heartworm: Joi.boolean().required(),
+	dapp: Joi.boolean().optional(),
+	rabies: Joi.boolean().optional(),
+	leptospirosis: Joi.boolean().optional(),
+	lyme: Joi.boolean().optional(),
+	canineInfluenza: Joi.boolean().optional(),
+	bordetella: Joi.boolean().optional(),
+	fleas: Joi.boolean().optional(),
+	ticks: Joi.boolean().optional(),
+	heartworm: Joi.boolean().optional(),
 	other: Joi.string().optional()
 })
 

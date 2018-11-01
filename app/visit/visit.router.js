@@ -64,7 +64,7 @@ visitRouter.get('/', jwtPassportMiddleware, (req, res) => {
 
 //retrieve specific visit by id
 visitRouter.get('/:visitid', (req, res) => {
-	Visit.findByID(req.params.visitid)
+	Visit.findById(req.params.visitid)
 		.populate('user')
 		.then(visit => {
 			return res.status(HTTP_STATUS_CODES.OK).json(visit.serialize());
@@ -92,7 +92,7 @@ visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
 	if (validation.error) {
 		return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
 	}
-	Visit.findByIDAndUpdate(req.params.visitid, visitUpdate)
+	Visit.findByIdAndUpdate(req.params.visitid, visitUpdate)
         .then(()=>{
             return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
@@ -103,7 +103,7 @@ visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
 
 //delete vist plan by id
 visitRouter.delete('/:visitid', jwtPassportMiddleware, (req, res) => {
-	Visit.findByIDAndDelete(req.params.visitid)
+	Visit.findByIdAndDelete(req.params.visitid)
         .then(() => {
             return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })

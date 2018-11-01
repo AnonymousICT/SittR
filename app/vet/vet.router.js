@@ -56,7 +56,7 @@ vetRouter.get('/vets', (req, res)=>{
 
 //retrieve specific vet by id
 vetRouter.get('/:vetid', (req, res) => {
-    Vet.findByID(req.params.vetid)
+    Vet.findById(req.params.vetid)
         .populate('user')
         .then(vet => {
             return res.status(HTTP_STATUS_CODES.OK).json(vet.serialize());
@@ -87,7 +87,7 @@ vetRouter.put('/:vetid', jwtPassportMiddleware, (req, res) => {
 });
 
 vetRouter.delete(':/vetid', jwtPassportMiddleware, (req, res)=>{
-	Vet.findByIDAndDelete(req.params.vetid)
+	Vet.findByIdAndDelete(req.params.vetid)
         .then(() => {
             return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })

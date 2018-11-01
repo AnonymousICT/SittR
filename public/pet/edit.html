@@ -17,24 +17,24 @@
 					<li><a href="/profile/detail.html">Your Profile</a></nav></li>
 					<li><button id="logout-btn">Logout</button></li>
 				</ul>
-			</nav>
-		<p>Tell us about your best friend!</p>
-		<section class="pet-profile">
-			<form id="new-pet-form">
-				<fieldset>
-					<label for="petname-txt">Pet name:<br> <input type="text" id="petname-txt" required>
-					</label><br>
+		</nav>
+		<h1>Edit Pet form</h1>
+		<form id="pet-edit-form">
+			<fieldset>
+				<label for="petname-txt">Pet name:<br> 
+					<input type="text" id="petname-txt" required>
+				</label><br>
 					<!-- dog or cat -->
-					<label for="pettype-txt">Pet type:<br> <!-- <input type="text" id="pettype-txt" required> -->
-						<select id="pettype-txt" required>
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="dog">Dog</option>
-	  						<option value="cat">Cat</option>
-						</select>
-					</label><br>
+				<label for="pettype-txt">Pet type:<br>
+					<select id="pettype-txt" required>
+						<option disabled selected value> -- select an option -- </option>
+  						<option value="dog">Dog</option>
+  						<option value="cat">Cat</option>
+					</select></label><br>
 					<!-- breed is fine placeholder of Don't Know -->
-					<label for="petbreed-txt">Pet breed:<br> <input type="text" id="petbreed-txt" placeholder="Don't Know is fine too">
-					</label><br>
+				<label for="petbreed-txt">Pet breed:<br> 
+					<input type="text" id="petbreed-txt" placeholder="Don't Know is fine too">
+				</label><br>
 
 					<label for="petage-txt">Age:<br> <input type="number" id="petage-txt" placeholder="pets age < 1: use 1">
 					</label><br>
@@ -112,15 +112,16 @@
 	  						<option value="false">no</option>
 						</select></label><br>
 					<label for="behaviorother">Are they other behavior quirks?<br><input type="text" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat "></label><br>
-					<input type="submit" value="Create New Pet">
-				</fieldset>
-			</form>
-		</section>
+					<input type="submit" value="Edit Pet Details">
+				
+			</fieldset>
+		</form>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../utilities/cache.module.js"></script>
 <script src="../utilities/render.module.js"></script>
 <script src="../utilities/http.module.js"></script>
-<script type="text/javascript" src="create.page.js"></script>
+<script src="../utilities/etc.module.js"></script>
+<script type="text/javascript" src="edit.page.js"></script>
 </body>
 </html>

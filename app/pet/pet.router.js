@@ -89,11 +89,11 @@ petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
         petDietRestrictions: req.body.petDietRestrictions,
         petBehavior: req.body.petBehavior
     }
-    const validation = Joi.validation(petUpdate, PetJoiSchema);
+    const validation = Joi.validate(petUpdate, PetJoiSchema);
     if (validation.error) {
         return res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({ error:validation.error });
     }
-    Pet.findByIDAndUpdate(req.params.petid, petUpdate)
+    Pet.findByIdAndUpdate(req.params.petid, petUpdate)
         .then(()=>{
             return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
@@ -104,7 +104,7 @@ petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
 
 //delete pet by id
 petRouter.delete('/:petid', jwtPassportMiddleware, (req, res)=>{
-    Pet.findByIDAndDelete(req.params.petid)
+    Pet.findByIdAndDelete(req.params.petid)
         .then(() => {
             return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })

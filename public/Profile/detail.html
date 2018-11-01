@@ -10,37 +10,32 @@
 <body>
 	<h1>SittR</h1>
 	<main>
-		<h3 id="nav-greeting">Welcome User</h3>
 		<nav>
 				<ul>
 					<li><a href="/index.html">Home</a></li>
-					<li><a href="/profile/detail.html">User Profile</a></nav></li>
+					<li class="user-profile"><a href="/profile/detail.html">User Profile</a></li>
 					<li><button id="logout-btn">Logout</button></li>
 				</ul>
 			</nav>
-		<p>User Profile</p>
-		<section id="user-profile">
-			your name: <br>
-			your email:<br>
-			<!-- password reset -->
-			<h4>change your password below</h4>
-			<form>
-				<fieldset>
-					<label for="old-password">old password<br><input type="text" id="old-password"></label><br>
-					<label for="new-password">new password<br><input type="text" id="new-password"></label><br>
-					<label for="confirm-password">type new password again<br><input type="text" id="confirm-password"></label><br>
-					<button>submit changes</button>
-				</fieldset>
-			</form>
+		<section>
+			<h2 class="user-profile">User Profile</h2>
+			<p class="user-email">Your email:</p>
 		</section>
-		<section id="users-pets">
-			pets that user has here
+		<section id="pet-list">
+			
+		</section>
+		<section id="vet-list">
+			
+		</section>
+		<section>
 			<h4><a href="/pet/create.html">Add a pet</a></h4>
+			<h4><a href="/vet/create.html">Add a vet</a></h4>
 		</section>
-		<button>Save Changes</button>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="../utilities/cache.module.js"></script>
+<script src="../utilities/cache.module.js"></script>
+<script src="../utilities/render.module.js"></script>
+<script src="../utilities/http.module.js"></script>
 <script type="text/javascript" src="detail.page.js"></script>
 </body>
 </html>

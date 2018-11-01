@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SittR</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+	<h1>SittR</h1>
+	<main>
+		<h3 id="nav-greeting">Welcome User</h3>
+		<nav>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="/profile/detail.html">Your Profile</a></nav></li>
+					<li><button id="logout-btn">Logout</button></li>
+				</ul>
+			</nav>
+		<p>Tell us about your primary veterinarian</p>
+		<section class="vet-profile">
+			<form id="new-vet-form">
+				<fieldset>
+					<label for="vetname-txt">Your Vet's name or business:<br> <input type="text" id="vetname-txt" placeholder="Dr. Real Vet" required><br>
+					<label for="vetaddress-txt">Your Vet's address:<br> <input type="text" id="vetaddress-txt" placeholder="1 Main St. Springfield, CA 00000" required><br>
+					<label for="vetphone-txt">Your Vet's phone number :<br> <input type="text" id="vetphone-txt" placeholder="(555) 555-5555" required><br>
+					<input type="submit" value="Add Vet to profile">
+				</fieldset>
+			</form>
+		</section>
+	</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../utilities/cache.module.js"></script>
+<script src="../utilities/render.module.js"></script>
+<script src="../utilities/http.module.js"></script>
+<script type="text/javascript" src="create.page.js"></script>
+</body>
+</html>

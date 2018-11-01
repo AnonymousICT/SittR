@@ -4,8 +4,8 @@ const Joi = require('joi');
 const reportSchema = new mongoose.Schema({
 	visit: {type: mongoose.Schema.Types.ObjectId, ref: "visit"} ,
 	// reportDate: timestamp and I don't know how to do it
-	reportStatus: {type: Number, required: true},
-	reportSummary: {type: String, required: true},
+	reportStatus: {type: Number},
+	reportSummary: {type: String},
 	reportExtraCosts: {type: Number},
 	reportReceipt:{type: String} //url string
 });
@@ -23,8 +23,8 @@ reportSchema.methods.serialize = function () {
 
 const ReportJoiSchema = Joi.object().keys({
 	visit: Joi.string().optional(),
-	reportStatus: Joi.number().required(),
-	reportSummary: Joi.string().required(),
+	reportStatus: Joi.number().optional(),
+	reportSummary: Joi.string().optional(),
 	reportExtraCosts: Joi.number().optional(),
 	reportReceipt: Joi.string().optional()
 });

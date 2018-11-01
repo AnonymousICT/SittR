@@ -61,11 +61,11 @@ petMedicalRouter.put('/:petMedicalid', jwtPassportMiddleware, (req, res)=> {
 		heartworm: req.body.heartworm,
 		other: req.body.other
 	}
-	const validation = Joi.validation(petMedicalUpdate, PetMedicalJoiSchema);
+	const validation = Joi.validate(petMedicalUpdate, PetMedicalJoiSchema);
 	if (validation.error) {
 		return res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({ error: validation.error });
 	}
-	PetMedical.findByIDAndUpdate(req.params.petMedicalid, petMedicalUpdate)
+	PetMedical.findByIdAndUpdate(req.params.petMedicalid, petMedicalUpdate)
         .then(()=>{
             return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
@@ -75,7 +75,7 @@ petMedicalRouter.put('/:petMedicalid', jwtPassportMiddleware, (req, res)=> {
 });
 
 petMedicalRouter.delete('/:petMedicalid', jwtPassportMiddleware, (req, res) => {
-	PetMedical.findByIDAndDelete(req.params.petMedicalid)
+	PetMedical.findByIdAndDelete(req.params.petMedicalid)
 			.then(()=>{
 				return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
 			})

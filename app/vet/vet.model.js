@@ -3,9 +3,9 @@ const Joi = require('joi');
 
 const vetSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
-	vetName: {type: String, required:true},
-	vetAddress: {type:String, required:true},
-	vetPhone: {type:String, required:true}
+	vetName: {type: String},
+	vetAddress: {type:String},
+	vetPhone: {type:String}
 })
 
 vetSchema.methods.serialize = function () {
@@ -27,9 +27,9 @@ vetSchema.methods.serialize = function () {
 
 const VetJoiSchema = Joi.object().keys({
 	user: Joi.string().optional(),
-	vetName: Joi.string().min(1).required(),
-	vetAddress: Joi.string().min(1).required(),
-	vetPhone: Joi.string().min(1).required()
+	vetName: Joi.string().optional(),
+	vetAddress: Joi.string().optional(),
+	vetPhone: Joi.string().optional()
 })
 
 const Vet = mongoose.model('vet' , vetSchema);
