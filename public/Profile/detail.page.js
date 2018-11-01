@@ -9,8 +9,7 @@ $(document).ready(onReady);
 
 function onReady() {
 	HTTP.updateAuthenticatedUI();
-
-	if(STATE.authUser) {
+		if(STATE.authUser) {
 		HTTP.getUserPets({
 			jwtToken: STATE.authUser.jwtToken,
 			onSuccess: RENDER.renderPetList
@@ -23,6 +22,8 @@ function onReady() {
 	$('#logout-btn').on('click', onLogoutBtnClick);
 	$('#pet-list').on('click', '.delete-pet-btn', deletePetBtnClick);
 	$('#pet-list').on('click', '.pet-card', onPetCardClick);
+	$('#vet-list').on('click', '.vet-card', onVetCardClick);
+	$('#vet-list').on('click', '.delete-vet-btn', deleteVetClick);
 }
 
 function onLogoutBtnClick(event) {
@@ -56,8 +57,34 @@ function deletePetBtnClick(event) {
 	}
 }
 
+function deleteVetClick(event) {
+	event.stopImmediatePropagation();
+	const vetId = $(event.currentTarget)
+		.closest('.vet-card')
+		.attr('data-vet-id');
+
+	const userSaidYes = confirm('Are you sure you want to delete this vet?');
+	if(userSaidYes) {
+		HTTP.deleteVet({
+			vetId: vetId,
+			jwtToken: STATE.authUser.jwtToken,
+			onSuccess: () => {
+				alert('Vet deleted successfully, reloading results...');
+				HTTP.getUserVet({
+					jwtToken: STATE.authUser.jwtToken,
+					onSuccess: renderVetProfile
+				})
+			}
+		})
+	}
+}
+
 function onPetCardClick(event) {
 	const petId = $(event.currentTarget).attr('data-pet-id');
 	window.open(`../pet/detail.html?id=${petId}`, '_self');
 }
 
+function onVetCardClick(event) {
+	const vetId = $(event.currentTarget).attr('data-vet-id');
+	window.open(`../vet/edit.html?id=${vetId}`, '_self');
+}

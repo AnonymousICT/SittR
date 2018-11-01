@@ -17,7 +17,7 @@ vetSchema.methods.serialize = function () {
 		user = this.user;
 	}
 	return {
-		vetId: this._id,
+		id: this._id,
 		user: user,
 		vetName: this.vetName,
 		vetAddress: this.vetAddress,
