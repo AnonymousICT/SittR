@@ -20,7 +20,7 @@ describe("index page", function() {
   it("should exist", function() {
     return chai
       .request(app)
-      .get("/test.html")
+      .get("/")
       .then(function(res) {
         expect(res).to.have.status(200);
       });
