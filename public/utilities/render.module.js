@@ -13,9 +13,9 @@ function renderVetProfile(vets) {
 
 	function vetToHtml(vet){
 		return `
-		<div class = "vet-card" data-vet-id="${vet.id}">
+		<div class ="vet-card" data-vet-id="${vet.id}">
 			<ul>
-				
+				<li>${vet.id}</li>
 				<li>${vet.vetName}</li>
 				<li>${vet.vetAddress}</li>
 				<li>${vet.vetPhone}</li>

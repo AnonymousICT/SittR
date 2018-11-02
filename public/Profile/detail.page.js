@@ -23,7 +23,7 @@ function onReady() {
 	$('#pet-list').on('click', '.delete-pet-btn', deletePetBtnClick);
 	$('#pet-list').on('click', '.pet-card', onPetCardClick);
 	$('#vet-list').on('click', '.vet-card', onVetCardClick);
-	$('#vet-list').on('click', '.delete-vet-btn', deleteVetClick);
+	$('#vet-list').on('click', '.delete-vet-btn', deleteVetBtnClick);
 }
 
 function onLogoutBtnClick(event) {
@@ -49,7 +49,7 @@ function deletePetBtnClick(event) {
 				alert('Pet deleted successfully, reloading results...');
 				HTTP.getUserPets({
 					jwtToken: STATE.authUser.jwtToken,
-					onSuccess: RENDER.renderPetList,
+					onSuccess: RENDER.renderPetList
 					
 				});
 			}
@@ -57,27 +57,29 @@ function deletePetBtnClick(event) {
 	}
 }
 
-function deleteVetClick(event) {
+function deleteVetBtnClick(event) {
 	event.stopImmediatePropagation();
 	const vetId = $(event.currentTarget)
 		.closest('.vet-card')
 		.attr('data-vet-id');
 
-	const userSaidYes = confirm('Are you sure you want to delete this vet?');
-	if(userSaidYes) {
+	const userSaidYes = confirm('Are you sure you want to delet this vet?');
+	if (userSaidYes) {
 		HTTP.deleteVet({
 			vetId: vetId,
 			jwtToken: STATE.authUser.jwtToken,
 			onSuccess: () => {
-				alert('Vet deleted successfully, reloading results...');
+				alert('Vet deleted successfully reloading results...');
 				HTTP.getUserVet({
 					jwtToken: STATE.authUser.jwtToken,
-					onSuccess: renderVetProfile
+					onSuccess: RENDER.renderVetProfile
 				})
 			}
 		})
 	}
 }
+
+
 
 function onPetCardClick(event) {
 	const petId = $(event.currentTarget).attr('data-pet-id');

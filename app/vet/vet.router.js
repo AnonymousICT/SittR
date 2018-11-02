@@ -73,11 +73,11 @@ vetRouter.put('/:vetid', jwtPassportMiddleware, (req, res) => {
 		vetAddress: req.body.vetAddress,
 		vetPhone: req.body.vetPhone
 	}
-	const validation = Joi.validation(vetUpdate, VetJoiSchema);
+	const validation = Joi.validate(vetUpdate, VetJoiSchema);
     if (validation.error) {
         return res.status(HTTP_STATUS_CODES.BAD_REQUEST).json({ error:validation.error });
     }
-    Vet.findByIDAndUpdate(req.params.vetid, vetUpdate)
+    Vet.findByIdAndUpdate(req.params.vetid, vetUpdate)
         .then(()=>{
             return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
@@ -86,14 +86,14 @@ vetRouter.put('/:vetid', jwtPassportMiddleware, (req, res) => {
         });
 });
 
-vetRouter.delete(':/vetid', jwtPassportMiddleware, (req, res)=>{
-	Vet.findByIdAndDelete(req.params.vetid)
+vetRouter.delete('/:vetid', jwtPassportMiddleware, (req, res)=>{
+    Vet.findByIdAndDelete(req.params.vetid)
         .then(() => {
-            return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
+            return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
         .catch(error => {
-            return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+            return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
-})
+});
 
 module.exports = { vetRouter };

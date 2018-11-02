@@ -106,10 +106,10 @@ petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
 petRouter.delete('/:petid', jwtPassportMiddleware, (req, res)=>{
     Pet.findByIdAndDelete(req.params.petid)
         .then(() => {
-            return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
+            return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
         .catch(error => {
-            return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+            return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
 });
 

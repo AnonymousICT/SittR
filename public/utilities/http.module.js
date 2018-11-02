@@ -266,7 +266,7 @@ function getUserVet(options) {
 
 function getVetById(options) {
 	const{ vetId, onSuccess} = options;
-	$.getJSON(`/api/vet/${vetId}`, onSuccess);
+    $.getJSON(`/api/vet/${vetId}`, onSuccess);
 }
 
 function createVet(options) {
@@ -312,12 +312,13 @@ function updateVet(options) {
 }
 
 function deleteVet(options) {
-	const {vetId, jwtToken, onSuccess, onError} = options;
-	$.ajax({
-		type: 'DELETE',
+    const {vetId, jwtToken, onSuccess, onError} = options;
+    $.ajax({
+        type: 'delete',
         url: `/api/vet/${vetId}`,
         contentType: 'application/json',
         dataType: 'json',
+        data: undefined,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
         },
@@ -328,7 +329,7 @@ function deleteVet(options) {
                 onError(err);
             }
         }
-	})
+    })
 }
 
 //visit stuff

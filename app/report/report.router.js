@@ -79,10 +79,10 @@ reportRouter.put('/:reportid', jwtPassportMiddleware, (req, res)=> {
 reportRouter.delete('/:reportid', jwtPassportMiddleware, (req, res) => {
 	Report.findByIdAndDelete(req.params.reportid)
 		.then(()=>{
-			return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
+			return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
 		})
 		.catch(error => {
-            return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+            return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
 });
 
