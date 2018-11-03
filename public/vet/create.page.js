@@ -9,27 +9,27 @@ $(document).ready(onReady);
 function onReady() {
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 
-    $('#new-vet-form').on('submit', onCreateSubmit);
+    $("#new-vet-form").on("submit", onCreateSubmit);
 }
 
 function onCreateSubmit(event) {
     event.preventDefault();
     const newVet = {
-        vetName: $('#vetname-txt').val(),
-        vetAddress: $('#vetaddress-txt').val(),
-        vetPhone: $('#vetphone-txt').val()
+        vetName: $("#vetname-txt").val(),
+        vetAddress: $("#vetaddress-txt").val(),
+        vetPhone: $("#vetphone-txt").val()
     };
 
     HTTP.createVet({
         jwtToken: STATE.authUser.jwtToken,
         newVet: newVet,
         onSuccess: vet => {
-            alert('Vet has been added to your profile! redirecting...');
-            window.open(`/profile/detail.html`, '_self');
+            alert("Vet has been added to your profile! redirecting...");
+            window.open(`/profile/detail.html`, "_self");
         },
-        onError: err=> {
-            alert('Internal Server Error (see console)');
+        onError: err => {
+            alert("Internal Server Error (see console)");
             console.error(err);
         }
-    })
+    });
 }

@@ -7,38 +7,42 @@ const ETC = window.ETC_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
-	STATE.vetId = ETC.getQueryStringParam('id');
-	STATE.authUser = CACHE.getAuthenticatedUserFromCache();
-   
-	HTTP.getVetById({
-		vetId: STATE.vetId,
-		onSuccess: RENDER.renderVetEdit
-	});
-	$('#logout-btn').on('click', HTTP.onLogoutBtnClick);
-	$('#vet-edit-form').on('click', '#vetEditSubmit', onEditVetSubmit);
+    STATE.vetId = ETC.getQueryStringParam("id");
+    STATE.authUser = CACHE.getAuthenticatedUserFromCache();
+
+    HTTP.getVetById({
+        vetId: STATE.vetId,
+        onSuccess: RENDER.renderVetEdit
+    });
+    $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
+    $("#vet-edit-form").on("submit", onEditVetSubmit);
+    
 }
 
-
 function onEditVetSubmit(event) {
-	event.preventDefault();
-	const newVet = {
-		vetName: $('#vetname-txt').val(),
-		vetAddress:$('#vetaddress-txt').val(),
-		vetPhone: $('#vetphone-txt').val()
-	};
+    event.preventDefault();
+    const newVet = {
+        vetName: $("#vetname-txt").val(),
+        vetAddress: $("#vetaddress-txt").val(),
+        vetPhone: $("#vetphone-txt").val()
+    };
 
-	HTTP.updateVet({
-		jwtToken: STATE.authUser.jwtToken,
-		vetId: STATE.vetId,
-		newVet: newVet,
-		onSuccess: vet => {
-			alert('vet changes saved successfuly, redirecting...');
-			window.open(`/profile/detail.html`, '_self');
-			// window.open(`/profile/detail.html?id${STATE.userId}`, '_self');
-		},
-		onError: err=> {
-			console.log('There was a problem editing this vet, please try again later.');
-			alert('There was a problem editing this vet, please try again later.');
-		}
-	});
+    HTTP.updateVet({
+        jwtToken: STATE.authUser.jwtToken,
+        vetId: STATE.vetId,
+        newVet: newVet,
+        onSuccess: vet => {
+            alert("vet changes saved successfuly, redirecting...");
+            window.open(`/profile/detail.html`, "_self");
+            // window.open(`/profile/detail.html?id${STATE.userId}`, '_self');
+        },
+        onError: err => {
+            console.log(
+                "There was a problem editing this vet, please try again later."
+            );
+            alert(
+                "There was a problem editing this vet, please try again later."
+            );
+        }
+    });
 }

@@ -9,19 +9,18 @@ $(document).ready(onReady);
 
 function onReady() {
     HTTP.updateAuthenticatedUI();
-    STATE.petId = ETC.getQueryStringParam('id');
+    STATE.petId = ETC.getQueryStringParam("id");
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 
     HTTP.getPetById({
         petId: STATE.petId,
         onSuccess: RENDER.renderPetDetails
     });
-    $('#logout-btn').on('click', HTTP.onLogoutBtnClick);
-    $('#pet-profile').on('click', '#edit-pet-btn', onEditPetBtnClick);
-   
+    $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
+    $("#pet-profile").on("click", "#edit-pet-btn", onEditPetBtnClick);
 }
 
 function onEditPetBtnClick(event) {
     event.preventDefault();
-    window.open(`/pet/edit.html?id=${STATE.petId}`, '_self');
+    window.open(`/pet/edit.html?id=${STATE.petId}`, "_self");
 }

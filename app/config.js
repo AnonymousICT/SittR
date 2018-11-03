@@ -8,10 +8,11 @@ module.exports = {
         BAD_REQUEST: 400,
         UNAUTHORIZED: 401,
         NOT_FOUND: 404,
-        INTERNAL_SERVER_ERROR: 500,
+        INTERNAL_SERVER_ERROR: 500
     },
-    MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost:27017/SittR',
-    TEST_MONGO_URL: process.env.TEST_MONGO_URL || 'mongodb://localhost:27017/test-SittR',
-    JWT_SECRET: process.env.JWT_SECRET || 'default',
-    JWT_EXPIRY: process.env.JWT_EXPIRY || '7d'
+    MONGO_URL: process.env.MONGO_URL || "mongodb://localhost:27017/SittR",
+    TEST_MONGO_URL:
+        process.env.TEST_MONGO_URL || "mongodb://localhost:27017/test-SittR",
+    JWT_SECRET: process.env.JWT_SECRET || "default",
+    JWT_EXPIRY: process.env.JWT_EXPIRY || "7d"
 };

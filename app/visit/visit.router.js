@@ -88,7 +88,7 @@ visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
 		visitInProgress: req.body.visitInProgress,
 		visitCompleted: req.body.visitCompleted
 	}
-	const validation = Joi.validation(visitUpdate, VisitJoiSchema);
+	const validation = Joi.validate(visitUpdate, VisitJoiSchema);
 	if (validation.error) {
 		return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
 	}
@@ -105,10 +105,10 @@ visitRouter.put('/:visitid', jwtPassportMiddleware, (req, res)=> {
 visitRouter.delete('/:visitid', jwtPassportMiddleware, (req, res) => {
 	Visit.findByIdAndDelete(req.params.visitid)
         .then(() => {
-            return response.status(HTTP_STATUS_CODES.NO_CONTENT).end();
+            return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
         .catch(error => {
-            return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+            return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
 })
 

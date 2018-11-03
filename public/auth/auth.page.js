@@ -7,28 +7,30 @@ const CACHE = window.CACHE_MODULE;
 $(document).ready(onPageLoad);
 
 function onPageLoad() {
-    $('#sign-up-form').submit(onSignUpSubmit);
-    $('#login-form').submit(onLoginSubmit);
+    $("#sign-up-form").submit(onSignUpSubmit);
+    $("#login-form").submit(onLoginSubmit);
 }
 
 function onSignUpSubmit(event) {
     event.preventDefault();
 
     const userData = {
-        name: $('#name-txt').val(),
-        email: $('#email-txt').val(),
-        username: $('#username-txt').val(),
-        password: $('#password-txt').val()
+        name: $("#name-txt").val(),
+        email: $("#email-txt").val(),
+        username: $("#username-txt").val(),
+        password: $("#password-txt").val()
     };
 
     HTTP.signupUser({
         userData,
         onSuccess: user => {
             alert(`User "${user.username}" created, you may now log in.`);
-            window.open('/auth/login.html', '_self');
+            window.open("/auth/login.html", "_self");
         },
         onError: err => {
-            alert('There was a problem processing your request, please try again later.');
+            alert(
+                "There was a problem processing your request, please try again later."
+            );
         }
     });
 }
@@ -37,8 +39,8 @@ function onLoginSubmit(event) {
     event.preventDefault();
 
     const userData = {
-        username: $('#username-txt').val(),
-        password: $('#password-txt').val()
+        username: $("#username-txt").val(),
+        password: $("#password-txt").val()
     };
 
     HTTP.loginUser({
@@ -47,11 +49,11 @@ function onLoginSubmit(event) {
             const authenticatedUser = response.user;
             authenticatedUser.jwtToken = response.jwtToken;
             CACHE.saveAuthenticatedUserIntoCache(authenticatedUser);
-            alert('Login succesful, redirecting you to homepage ...');
-            window.open('/', '_self');
+            alert("Login succesful, redirecting you to homepage ...");
+            window.open("/", "_self");
         },
         onError: err => {
-            alert('Incorrect username or password. Please try again.');
+            alert("Incorrect username or password. Please try again.");
         }
     });
 }
