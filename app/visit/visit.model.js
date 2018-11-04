@@ -4,12 +4,10 @@ const Joi = require('joi');
 const visitSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
 	timestamps: {type: Date, default: Date.now},
-	visitDateStart: { type: Date, required: true },
-	visitDateEnd: {type: Date, required: true }, 
-	// visitDateStart: { type: String, required: true},
-	// visitDateEnd: {type: String, required: true},
-	visitLocation: { type: String, required: true },
-	visitPrice: { type: Number, required: true },
+	visitDateStart: { type: Date},
+	visitDateEnd: {type: Date}, 
+	visitLocation: { type: String},
+	visitPrice: { type: Number},
 	visitCareInstructions: { type: String },
 	visitSummary: { type: String },
 	visitDesignatedUser: { type: String },
@@ -45,6 +43,7 @@ visitSchema.methods.serialize = function () {
 
 const VisitJoiSchema = Joi.object().keys({
 	user: Joi.string().optional(),
+	pet: Joi.string().optional(),
 	timestamps: Joi.date().timestamp('javascript'),
 	visitDateStart: Joi.date().min('1-1-2018').optional(),
 	visitDateEnd: Joi.date().min(Joi.ref('visitDateStart')).optional(),

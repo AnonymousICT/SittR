@@ -16,7 +16,6 @@ function renderVetProfile(vets) {
         return `
 		<div class ="vet-card" data-vet-id="${vet.id}">
 			<ul>
-				<li>${vet.id}</li>
 				<li>${vet.vetName}</li>
 				<li>${vet.vetAddress}</li>
 				<li>${vet.vetPhone}</li>
@@ -37,25 +36,48 @@ function renderVetEdit(vet) {
         .prop("disabled", false)
         .val(vet.vetPhone);
 }
-
 function renderVisits(visits) {
     const visitsHtml = visits.map(visitToHtml).join("<hr/>");
     $("#visit-list").html(visitsHtml);
 
     function visitToHtml(visit) {
         return `
-		<div class="visit-card" data-visit-id="${visit.id}">
+        <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
-				<li>${visit.user.name}</li>
-				<li>Date Created: ${visit.timestamps}</li>
-				<li>Date Start: ${visit.visitDateStart}</li>
-				<li>Date End: ${visit.visitDateEnd}</li>
-				<li>Offering Price: ${visit.visitPrice}</li>
-				<li>Visit Summary: ${visit.visitSummary}</li>
-			</ul>
+                <li>Date Created: ${visit.timestamps}</li>
+                <li>Date Start: ${visit.visitDateStart}</li>
+                <li>Date End: ${visit.visitDateEnd}</li>
+                <li>Offering Price: ${visit.visitPrice}</li>
+                <li>Visit Summary: ${visit.visitSummary}</li>
+            </ul>
+            <button id="delete-visit">Delete visit</button>
 		</div>
 		`;
     }
+}
+// function renderVisits(visits) {
+//     const visitsHtml = visits.map(visitToHtml).join("<hr/>");
+//     $("#visit-list").html(visitsHtml);
+
+//     function visitToHtml(visit) {
+//         return `
+// 		<div class="visit-card" data-visit-id="${visit.id}">
+//             <ul>
+// 				<li>${visit.user.name}</li>
+// 				<li>Date Created: ${visit.timestamps}</li>
+// 				<li>Date Start: ${visit.visitDateStart}</li>
+// 				<li>Date End: ${visit.visitDateEnd}</li>
+// 				<li>Offering Price: ${visit.visitPrice}</li>
+// 				<li>Visit Summary: ${visit.visitSummary}</li>
+//             </ul>
+//             <button id="delete-visit">Delete visit</button>
+// 		</div>
+// 		`;
+//     }
+// }
+
+function renderVisitDetail(visit) {
+
 }
 
 function renderPetList(pets) {

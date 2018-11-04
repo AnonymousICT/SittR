@@ -358,7 +358,7 @@ function createVisit(options) {
         url: "/api/visit",
         contentType: "application/json",
         dataType: "json",
-        data: JSON.stringify(newVet),
+        data: JSON.stringify(newVisit),
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", `Bearer ${jwtToken}`);
         },

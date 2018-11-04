@@ -10,13 +10,15 @@ $(document).ready(onPageLoad);
 function onPageLoad() {
     updateAuthenticatedUI();
     if (STATE.authUser) {
-        HTTP.getUserVisits({
-            jwtToken: STATE.authUser.jwtToken,
-            onSuccess: RENDER.renderVisits
-        });
+        // HTTP.getUserVisits({
+        //     jwtToken: STATE.authUser.jwtToken,
+        //     onSuccess: RENDER.renderVisits
+        // });
     }
 
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
+    // $("#visit-list").on("click", ".visit-card", onVisitCardClick)
+    // $("#visit-list").on("click", "#delete-visit", deleteVisitBtnClick)
 }
 
 function updateAuthenticatedUI() {
@@ -35,3 +37,18 @@ function updateAuthenticatedUI() {
         $("#default-menu").removeAttr("hidden");
     }
 }
+
+// function onVisitCardClick() {
+//     const visitId =$(event.currentTarget).attr("data-visit-id");
+//     console.log(visitId)
+//     // window.open(`/visit/detail.html?id${visitId}`, "_self");
+// }
+
+// function deleteVisitBtnClick() {
+//     event.stopImmediatePropagation();
+//     const visitId = $(event.currentTarget)
+//         .closest(".visit-card")
+//         .attr("data-visit-id");
+
+//     console.log('poop');
+// }
