@@ -34,7 +34,7 @@ function onEditVetSubmit(event) {
         onSuccess: vet => {
             alert("vet changes saved successfuly, redirecting...");
             window.open(`/profile/detail.html`, "_self");
-            // window.open(`/profile/detail.html?id${STATE.userId}`, '_self');
+          
         },
         onError: err => {
             console.log(

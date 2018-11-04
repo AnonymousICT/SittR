@@ -18,17 +18,13 @@ function onReady() {
             jwtToken: STATE.authUser.jwtToken,
             onSuccess: RENDER.renderVetProfile
         });
-        HTTP.getUserVisits({
-            jwtToken: STATE.authUser.jwtToken,
-            onSuccess: RENDER.renderVisits
-        });
     }
     $("#logout-btn").on("click", onLogoutBtnClick);
     $("#pet-list").on("click", ".delete-pet-btn", deletePetBtnClick);
     $("#pet-list").on("click", ".pet-card", onPetCardClick);
     $("#vet-list").on("click", ".vet-card", onVetCardClick);
     $("#vet-list").on("click", ".delete-vet-btn", deleteVetBtnClick);
-    $("#visit-list").on("click", ".visit-card", onVisitCardClick);
+   
 }
 
 function onLogoutBtnClick(event) {
@@ -92,9 +88,3 @@ function onVetCardClick(event) {
     const vetId = $(event.currentTarget).attr("data-vet-id");
     window.open(`../vet/edit.html?id=${vetId}`, "_self");
 }
-
-function onVisitCardClick(event) {
-    const visitId = $(event.currentTarget).attr("data-visit-id");
-    window.open(`/visit/detail.html?id${visitId}`, "_self");
-}
-

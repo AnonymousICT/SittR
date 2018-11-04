@@ -348,7 +348,15 @@ function getUserVisits(options) {
 
 function getVisitById(options) {
     const { visitId, onSuccess } = options;
-    $.getJSON(`/api/visit/${visitId}`, onSuccess);
+    // $.getJSON(`/api/visit/${visitId}`, onSuccess);
+    $.ajax({
+        type: "GET",
+        url: `/api/visit/${visitId}`,
+        contentType: "application/jwon",
+        dataType: "json",
+        success: onSuccess
+
+    })
 }
 
 function createVisit(options) {
