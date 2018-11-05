@@ -35,6 +35,20 @@ visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
 			return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
 		});
 });
+//retreive's all visit plans regardless of authentication
+visitRouter.get('/all', (req, res) => {
+	Visit.find()
+		.then(visits => {
+
+			return res.status(HTTP_STATUS_CODES.OK).json(
+				visits.map(visit => visit.serialize())
+			);
+		})
+		.catch(error => {
+			return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+		})
+})
+
 //retrieve the user's visit plan
 visitRouter.get('/', jwtPassportMiddleware, (req, res) => {
 	Visit.find({user: req.user.id})
