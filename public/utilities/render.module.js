@@ -5,7 +5,8 @@ const RENDER_MODULE = {
     renderVetProfile,
     renderVetEdit,
     renderVisits,
-    renderVisitDetails
+    renderVisitDetails,
+    renderVisitEdit
 };
 window.RENDER_MODULE = RENDER_MODULE;
 
@@ -70,6 +71,24 @@ function renderVisitDetails(visit) {
     <li>Care Instructions: ${visit.visitCareInstructions}</li>
     </ul>
     `);
+}
+
+function renderVisitEdit(visit) {
+    $("#visit-summary")
+        .prop("disabled", false)
+        .val(visit.visitSummary);
+    // $("#date-start-txt")
+    //     .prop("disabled", false)
+    //     .val(visit.visitDateStart);
+    $("#location-txt")
+        .prop("disabled", false)
+        .val(visit.visitLocation);
+    $("#visit-price")
+        .prop("disabled", false)
+        .val(visit.visitPrice);
+    $('#care-instructions')
+        .prop("disabled", false)
+        .val(visit.visitCareInstructions);
 }
 
 function renderPetList(pets) {

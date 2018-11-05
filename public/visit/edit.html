@@ -1,4 +1,10 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SittR</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
@@ -12,7 +18,40 @@
 				<li><button id="logout-btn">Logout</button></li>
 			</ul>
 		</nav>
-		
+		<section id="edit-visit">
+			<form id="edit-visit-form">
+				<fieldset>
+						<label for="visit-summary">
+							A quick summary of your needs<br>
+							<input type="text" size="200" id="visit-summary" placeholder="URGENT: I need to visit my sick parent out of town for 3 days. Or something less dramatic like: my wife and I are celebrating our 10th anniversary in Hawaii. We REALLY need the time away negotiable with pricing">
+						</label><br>
+						<label for="date-start-txt">
+							When do you need someone to watch your pet?<br>
+							<input type="date" id="date-start-txt">
+						</label><br>
+						<label for="date-end-txt">
+							When will you come home?<br>
+							<input type="date" id="date-end-txt">
+						</label><br>
+						<label for="location-txt">
+							Would you prefer someone to host your pet or someone to visit your home?<br>
+							<select id="location-txt">
+								<option disabled selected value> -- select an option -- </option>
+								<option value="Please host my pet">Please host my pet</option>
+								<option value="Just a visit to my home">Just a visit to my home</option>
+							</select>
+						</label><br>
+						<label for="visit-price">
+							How much are you willing to pay per day? price suggestion: $35 per overnight stay and $25 per visit(if you just need someone to visit your cat) urgent needs $50 per day <br>
+							$ <input type="number" id="visit-price" placeholder="30"> per night
+						</label><br>
+						<label for="care-instructions">What do you need the host to do for your pet?<br>
+							<input type="text" id="care-instructions" size="200" placeholder="Rex is a friendly golden retriever that but has me convinced that he's the living embodiment of a perpetual motion machine. He's a high energy dog and eats twice a day."><br>
+						</label>
+						<input type="submit" value="Edit visit">	
+				</fieldset>
+			</form>
+		</section>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../utilities/cache.module.js"></script>
