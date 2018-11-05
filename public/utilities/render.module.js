@@ -4,6 +4,7 @@ const RENDER_MODULE = {
     renderEditablePet,
     renderVetProfile,
     renderVetEdit,
+    renderAllVisits,
     renderVisits,
     renderVisitDetails,
     renderVisitEdit
@@ -38,6 +39,26 @@ function renderVetEdit(vet) {
         .prop("disabled", false)
         .val(vet.vetPhone);
 }
+
+function renderAllVisits(visits) {
+    const visitsHtml = visits.map(visitToHtml).join("<hr/>");
+    $("#visit-list").html(visitsHtml);
+
+    function visitToHtml(visit) {
+        return `
+        <div class ="visit-card" data-visit-id="${visit.id}">
+			<ul>
+                <li>Date Created: ${visit.timestamps}</li>
+                <li>Date Start: ${visit.visitDateStart}</li>
+                <li>Date End: ${visit.visitDateEnd}</li>
+                <li>Offering Price: ${visit.visitPrice}</li>
+                <li>Visit Summary: ${visit.visitSummary}</li>
+            </ul>
+		</div>
+		`;
+    }
+}
+
 function renderVisits(visits) {
     const visitsHtml = visits.map(visitToHtml).join("<hr/>");
     $("#visit-list").html(visitsHtml);
@@ -62,6 +83,7 @@ function renderVisitDetails(visit) {
     $("#visit-details").html(`
     <a href="/profile/detail.html">back to profile...</a><br>
     <button id="edit-visit-btn">Edit Visit Info</button>
+    <h2>${visit.user.email}</h2>
     <ul>
     <li>${visit.user.username} needs pet hosting between  ${visit.visitDateStart} - ${visit.visitDateEnd}</li>
     <li>Visit created: ${visit.timestamps}</li>

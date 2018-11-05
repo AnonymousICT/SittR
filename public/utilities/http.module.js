@@ -11,6 +11,7 @@ const HTTP_MODULE = {
     createVet,
     updateVet,
     deleteVet,
+    getAllVisits,
     getUserVisits,
     getVisitById,
     createVisit,
@@ -325,6 +326,23 @@ function deleteVet(options) {
 }
 
 //visit stuff
+function getAllVisits(options) {
+    const { onSuccess, onError } = options;
+    $.ajax({
+        type: "GET",
+        url: "/api/visit/all",
+        contentType: "application/json",
+        dataType: "json",
+        success: onSuccess,
+        error: err => {
+            console.error(err);
+            if(onError) {
+                onError(err);
+            }
+        }
+    })
+}
+
 
 function getUserVisits(options) {
     const { jwtToken, onSuccess, onError } = options;
