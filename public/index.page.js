@@ -15,7 +15,6 @@ function onPageLoad() {
             onSuccess: RENDER.renderVisits
         });
     }
-
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
     $("#visit-list").on("click", ".visit-card", onVisitCardClick)
     $("#visit-list").on("click", "#delete-visit", deleteVisitBtnClick)
@@ -33,6 +32,7 @@ function updateAuthenticatedUI() {
         );
         $("#auth-menu").removeAttr("hidden");
         $("#visit-list").removeAttr("hidden");
+        $(".SV").removeAttr("hidden");
     } else {
         $("#default-menu").removeAttr("hidden");
     }
@@ -49,5 +49,18 @@ function deleteVisitBtnClick(event) {
         .closest(".visit-card")
         .attr("data-visit-id");
 
-    console.log('poop');
+    const userSaidYes = confirm("Are you sure you want to delete this visit?");
+    if (userSaidYes) {
+        HTTP.deleteVisit({
+            visitId: visitId,
+            jwtToken: STATE.authUser.jwtToken,
+            onSuccess: () => {
+                alert("visit deleted successfully reloading results...");
+                HTTP.getUserVisits({
+                    jwtToken: STATE.authUser.jwtToken,
+                    onSuccess: RENDER.renderVisits
+                });
+            }
+        });
+    }
 }

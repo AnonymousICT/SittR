@@ -9,8 +9,11 @@ const { Visit, VisitJoiSchema } = require('./visit.model.js');
 
 //creating a user's new visit plan
 visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
+	// console.log('hello');
+	// console.log(req.body, req.user);
 	const newVisit = {
 		user: req.user.id,
+		pet: req.body.pet,
 		timestamps: req.body.timestamps,
 		visitDateStart: req.body.visitDateStart,
 		visitDateEnd: req.body.visitDateEnd,
@@ -37,7 +40,8 @@ visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
 });
 //retreive's all visit plans regardless of authentication
 visitRouter.get('/all', (req, res) => {
-	Visit.find()
+	console.log(user)
+	Visit.find({user:req.user.id})
 		.then(visits => {
 
 			return res.status(HTTP_STATUS_CODES.OK).json(
@@ -51,6 +55,7 @@ visitRouter.get('/all', (req, res) => {
 
 //retrieve the user's visit plan
 visitRouter.get('/', jwtPassportMiddleware, (req, res) => {
+	console.log(req.user.id)
 	Visit.find({user: req.user.id})
 		.populate('user')
         .then(visits => {

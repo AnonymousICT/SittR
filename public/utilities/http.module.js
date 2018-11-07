@@ -1,6 +1,7 @@
 const HTTP_MODULE = {
     signupUser,
     loginUser,
+    // updateUsersPet,
     getUserPets,
     getPetById,
     createPet,
@@ -18,10 +19,11 @@ const HTTP_MODULE = {
     updateVisit,
     deleteVisit,
     onLogoutBtnClick,
-    updateAuthenticatedUI
+    updateAuthenticatedUI,
 };
 
 window.HTTP_MODULE = HTTP_MODULE;
+
 
 function onLogoutBtnClick(event) {
     const confirmation = confirm("Are you sure you want to logout?");
@@ -39,14 +41,14 @@ function updateAuthenticatedUI() {
             `<li class="user-profile"><a href="/profile/detail.html">${
                 authUser.name
             }'s profile</a></li>`
-        );
-        $(".user-email").html(`<p>Your email: ${authUser.email}</p>`);
+            );
+            $(".user-email").html(`<p>Your email: ${authUser.email}</p>`);
+        }
     }
-}
-
-//user stuff
-function signupUser(options) {
-    const { userData, onSuccess, onError } = options;
+    
+    //user stuff
+    function signupUser(options) {
+        const { userData, onSuccess, onError } = options;
     $.ajax({
         type: "POST",
         url: "/api/user",
@@ -80,6 +82,27 @@ function loginUser(options) {
         }
     });
 }
+
+// function updateUsersPet(options) {
+//     const { jwtToken, onError} =options;
+//     $.ajax({
+//         type: "PUT",
+//         url: "api/user",
+//         contentType: "application/json",
+//         dataType: "json",
+//         beforeSend: function(xhr) {
+//             xhr.setRequestHeader("Authorization", `Bearer ${jwtToken}`);
+//         },
+//         success: ,
+//         error: err => {
+//             console.error(err);
+//             if (onError) {
+//                 onError(err);
+//             }
+//         }
+//     })
+// }
+
 //pet stuff
 function getUserPets(options) {
     const { jwtToken, onSuccess, onError } = options;

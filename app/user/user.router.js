@@ -68,4 +68,18 @@ userRouter.get('/:userid', (request, response) => {
         });
 });
 
+// userRouter.put('/:userid', (request, response) => {
+//     const userUpdate = {
+//         _id: request.user.id,
+//         { $push: { pets: pet.id } }
+        
+//     }
+//     User.findByIdAndUpdate(request.params.userid)
+//         .then(user => {
+//             return response.status(HTTP_STATUS_CODES.OK).json(user.serialize());
+//         })
+//         .catch(error => {
+//             return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+//         });
+// });
 module.exports = { userRouter };

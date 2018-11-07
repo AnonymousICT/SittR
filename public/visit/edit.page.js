@@ -7,6 +7,7 @@ const ETC = window.ETC_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
+    HTTP.updateAuthenticatedUI();
     STATE.visitId = ETC.getQueryStringParam("id");
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 

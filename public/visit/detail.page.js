@@ -13,7 +13,7 @@ function onReady() {
 
     HTTP.getVisitById({
         visitId: STATE.visitId,
-        onSuccess: RENDER.renderVisitDetails, 
+        onSuccess: RENDER.renderVisitDetails,
     });
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
     $("#visit-details").on("click", "#edit-visit-btn", onEditVisitBtnClick)

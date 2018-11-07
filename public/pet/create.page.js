@@ -7,6 +7,7 @@ const CACHE = window.CACHE_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
+    HTTP.updateAuthenticatedUI();
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
@@ -46,4 +47,9 @@ function onCreateSubmit(event) {
             console.error(err);
         }
     });
+
+    HTTP.updateUsersPet({
+        jwtToken: STATE.authUser.jwtToken,
+        newPet: newPet
+    })
 }

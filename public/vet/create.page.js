@@ -7,6 +7,7 @@ const CACHE = window.CACHE_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
+    HTTP.updateAuthenticatedUI();
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 
     $("#new-vet-form").on("submit", onCreateSubmit);

@@ -49,8 +49,8 @@ function renderAllVisits(visits) {
         <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
                 <li>Date Created: ${visit.timestamps}</li>
-                <li>Date Start: ${visit.visitDateStart}</li>
-                <li>Date End: ${visit.visitDateEnd}</li>
+                <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
+                <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
                 <li>Offering Price: ${visit.visitPrice}</li>
                 <li>Visit Summary: ${visit.visitSummary}</li>
             </ul>
@@ -67,9 +67,9 @@ function renderVisits(visits) {
         return `
         <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
-                <li>Date Created: ${visit.timestamps}</li>
-                <li>Date Start: ${visit.visitDateStart}</li>
-                <li>Date End: ${visit.visitDateEnd}</li>
+                <li>Date Created: ${visit.timestamps.slice(0, 10)}</li>
+                <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
+                <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
                 <li>Offering Price: ${visit.visitPrice}</li>
                 <li>Visit Summary: ${visit.visitSummary}</li>
             </ul>
@@ -194,7 +194,10 @@ function renderEditablePet(pet) {
         .val(pet.petBehavior.cats);
     $("#behaviorchildren")
         .prop("disabled", false)
-        .val(pet.petBehavior.miscPets);
+        .val(pet.petBehavior.children);
+    $("#behaviormiscpets")
+        .prop("disabled", false)
+        .val(pet.petBehavior.miscPets)
     $("#behaviorother")
         .prop("disabled", false)
         .val(pet.petBehavior.other);

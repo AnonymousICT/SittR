@@ -63,7 +63,7 @@ function deleteVetBtnClick(event) {
         .closest(".vet-card")
         .attr("data-vet-id");
 
-    const userSaidYes = confirm("Are you sure you want to delet this vet?");
+    const userSaidYes = confirm("Are you sure you want to delete this vet?");
     if (userSaidYes) {
         HTTP.deleteVet({
             vetId: vetId,

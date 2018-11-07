@@ -13,6 +13,8 @@
 		<section id="default-menu" hidden>
 			<h3>Welcome to SittR. Put your mind at ease with community-driven pet sitting.</h3>
 			<h4>To set up your pet's next fur-cation, please <a href="/auth/login.html">Log In</a></h4>
+
+			
 		</section>
 		<section id="auth-menu" hidden>
 			<h3 id="nav-greeting">Welcome User</h3>
@@ -20,12 +22,20 @@
 				<ul>
 					<li><a href="../index.html">Home</a></li>
 					<li class="user-profile"><a href="/profile/detail.html">User Profile</a></li>
-					<li><button id="logout-btn">Logout</button></li>
+					<li><button class="blue white-txt" id="logout-btn">Logout</button></li>
 				</ul>
 			</nav>
-            <h4><a href="/visit/create.html">Create New Visit Plan</a></h4>
-            <h4><a href="/host/main.html">Host a Pet's Stay</a></h4>
+			<div id="home-btn">
+				<button  class="green">
+					<h4><a class="green black-txt" href="/visit/create.html">Create New Visit Plan</a></h4>
+				</button>
+				<button class="blue">
+					<h4><a class="blue white-txt" href="/host/main.html">Host a Pet's Stay</a></h4>
+				</button>
+			</div>
+			
 		</section>
+		<h4 class="SV" hidden>Scheduled Visits</h4>
 		<section id="visit-list" hidden>
 		</section>
 	</main>

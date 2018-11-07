@@ -7,6 +7,7 @@ const ETC = window.ETC_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
+    HTTP.updateAuthenticatedUI();
     HTTP.getAllVisits({
         onSuccess: RENDER.renderAllVisits
     })

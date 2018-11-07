@@ -8,6 +8,7 @@ const ETC = window.ETC_MODULE;
 $(document).ready(onReady);
 
 function onReady() {
+    HTTP.updateAuthenticatedUI();
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
 
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
@@ -17,20 +18,20 @@ function onReady() {
 function onVisitCreateSubmit(event) {
     event.preventDefault();
     const newVisit = {
-        visitDateStart: $("#date-start-txt").val(),
-        visitDateEnd: $("#date-end-txt").val(),
+        visitDateStart: $("#date-start-txt").val().slice(0, 10),
+        visitDateEnd: $("#date-end-txt").val().slice(0, 10),
         visitLocation: $("#location-txt").val(),
         visitPrice: $("#visit-price").val(),
         visitCareInstructions: $("#care-instructions").val(),
         visitSummary: $("#visit-summary").val()
     };
-
+    console.log(newVisit);
     HTTP.createVisit({
         jwtToken: STATE.authUser.jwtToken,
         newVisit: newVisit,
         onSuccess: visit => {
             alert("New visit has been added! redirecting to home page...");
-            window.open("../profile/detail.html", "_self");
+            window.open("../index.html", "_self");
         },
         onError: err => {
             alert("Internal Server Error (see console)");

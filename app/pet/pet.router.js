@@ -36,6 +36,20 @@ petRouter.post('/', jwtPassportMiddleware, (req, res) => {
         }); 
 });
 
+//retreive's all pets regardless of authentication
+// petRouter.get('/all', (req, res) => {
+//     Pet.find()
+//         .then(pets => {
+
+//             return res.status(HTTP_STATUS_CODES.OK).json(
+//                 pets.map(pet => pet.serialize())
+//             );
+//         })
+//         .catch(error => {
+// 			return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
+// 		})
+// })
+
 //retreive the user's pet
 petRouter.get('/', jwtPassportMiddleware, (req, res) => {
     Pet.find({user: req.user.id})

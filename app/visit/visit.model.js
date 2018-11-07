@@ -3,6 +3,7 @@ const Joi = require('joi');
 
 const visitSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'user'},
+	// pet: {type: mongoose.Schema.Types.ObjectId, ref:'pet'},
 	timestamps: {type: Date, default: Date.now},
 	visitDateStart: { type: Date},
 	visitDateEnd: {type: Date}, 
@@ -27,6 +28,7 @@ visitSchema.methods.serialize = function () {
 	return {
 		id:this._id,
 		user: user,
+		// pet: pet,
 		timestamps: this.timestamps,
 		visitDateStart: this.visitDateStart,
 		visitDateEnd: this.visitDateEnd,
