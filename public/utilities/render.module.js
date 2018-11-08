@@ -23,7 +23,7 @@ function renderVetProfile(vets) {
 				<li>${vet.vetAddress}</li>
 				<li>${vet.vetPhone}</li>
 			</ul>
-			<button class="delete-vet-btn">Delete Vet</button>
+			<button class="delete-vet-btn med-red white-txt">Delete Vet</button>
 		</div>
 		`;
     }
@@ -48,11 +48,11 @@ function renderAllVisits(visits) {
         return `
         <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
-                <li>Date Created: ${visit.timestamps}</li>
+                <li>Visit Summary: ${visit.visitSummary}</li>
                 <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
                 <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
                 <li>Offering Price: ${visit.visitPrice}</li>
-                <li>Visit Summary: ${visit.visitSummary}</li>
+                <li>Date Created: ${visit.timestamps.slice(0, 10)}</li>
             </ul>
 		</div>
 		`;
@@ -67,13 +67,12 @@ function renderVisits(visits) {
         return `
         <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
-                <li>Date Created: ${visit.timestamps.slice(0, 10)}</li>
-                <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
-                <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
-                <li>Offering Price: ${visit.visitPrice}</li>
-                <li>Visit Summary: ${visit.visitSummary}</li>
+                <li><span class="bold">Date Start:</span> ${visit.visitDateStart.slice(0, 10)}</li>
+                <li><span class="bold">Date End:</span> ${visit.visitDateEnd.slice(0, 10)}</li>
+                <li><span class="bold">Offering Price: $</span> ${visit.visitPrice}</li>
+                <li><span class="bold">Date Created:</span> ${visit.timestamps.slice(0, 10)}</li>
             </ul>
-            <button id="delete-visit">Delete visit</button>
+            <button class="med-red white-txt" id="delete-visit">Delete visit</button>
 		</div>
 		`;
     }
@@ -82,15 +81,15 @@ function renderVisits(visits) {
 function renderVisitDetails(visit) {
     $("#visit-details").html(`
     <a href="/profile/detail.html">back to profile...</a><br>
-    <button id="edit-visit-btn">Edit Visit Info</button>
-    <h2>${visit.user.email}</h2>
+    <button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>
+    <h3>Contact ${visit.user.email} for more details!</h3>
     <ul>
-    <li>${visit.user.username} needs pet hosting between  ${visit.visitDateStart} - ${visit.visitDateEnd}</li>
-    <li>Visit created: ${visit.timestamps}</li>
-    <li>Visit Summary: ${visit.visitSummary}</li>
-    <li> ${visit.user.username} is willing to pay $ ${visit.visitPrice} /per night (all pricing is up for discussion)</li>
-    <li>${visit.user.username} would prefer his pet be hosted at ${visit.visitLocation}</li>
-    <li>Care Instructions: ${visit.visitCareInstructions}</li>
+    <li><span class="bold">${visit.user.username}</span> needs pet hosting between  <span class="bold">${visit.visitDateStart.slice(0, 10)}</span> - <span class="bold">${visit.visitDateEnd.slice(0, 10)}</span></li>
+    <li><span class="bold">Visit Summary:</span> ${visit.visitSummary}</li>
+    <li> <span class="bold">${visit.user.username}</span> is willing to pay <span class="bold">$ ${visit.visitPrice} /per night</span> (all pricing is up for discussion)</li>
+    <li><span class="bold">${visit.user.username}</span> would prefer <span class="bold"> ${visit.visitLocation}</span></li>
+    <li><span class="bold"> Care Instructions:</span> ${visit.visitCareInstructions}</li>
+    <li>Visit created: ${visit.timestamps.slice(0, 10)}</li>
     </ul>
     `);
 }
@@ -99,9 +98,12 @@ function renderVisitEdit(visit) {
     $("#visit-summary")
         .prop("disabled", false)
         .val(visit.visitSummary);
-    // $("#date-start-txt")
-    //     .prop("disabled", false)
-    //     .val(visit.visitDateStart);
+    $("#date-start-txt")
+        .prop("disabled", false)
+        .val(visit.visitDateStart.slice(0, 10));
+    $("#date-end-txt")
+        .prop("disabled", false)
+        .val(visit.visitDateEnd.slice(0, 10));
     $("#location-txt")
         .prop("disabled", false)
         .val(visit.visitLocation);
@@ -125,7 +127,7 @@ function renderPetList(pets) {
 				<li>${pet.petBreed}</li>
 				<li>${pet.petAge} years old</li>
 			</ul>
-			<button class="delete-pet-btn">Delete Pet</button>
+			<button class="delete-pet-btn med-red white-txt">Delete Pet</button>
 		</div>
 		`;
     }
@@ -133,9 +135,8 @@ function renderPetList(pets) {
 
 function renderPetDetails(pet) {
     $("#pet-profile").html(`
-		<a href="/profile/detail.html">back to profile...</a>
 		<br>
-		<button id="edit-pet-btn">Edit ${pet.petName}'s info</button>
+		<button class="med-red white-txt" id="edit-pet-btn">Edit ${pet.petName}'s info</button>
 		<h2>${pet.petName} the ${pet.petType}</h2>
 		<ul>
 				<li>${pet.petBreed}</li>

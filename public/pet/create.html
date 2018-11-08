@@ -11,27 +11,26 @@
 	<h1>SittR</h1>
 	<main>
 		<nav>
-				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li class="user-profile"><a href="/profile/detail.html">User Profile</a></li>
-					<li><button id="logout-btn">Logout</button></li>
-				</ul>
-			</nav>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li class="user-profile"><a href="/profile/detail.html">User Profile</a></li>
+				<li><button class="green white-txt" id="logout-btn">Logout</button></li>
+			</ul>
+		</nav>
+		<a href="/profile/detail.html">back to profile...</a>
 		<p>Tell us about your best friend!</p>
 		<section class="pet-profile">
 			<form id="new-pet-form">
 				<fieldset>
 					<label for="petname-txt">Pet name:<br> <input type="text" id="petname-txt" required>
 					</label><br>
-					<!-- dog or cat -->
-					<label for="pettype-txt">Pet type:<br> <!-- <input type="text" id="pettype-txt" required> -->
+					<label for="pettype-txt">Pet type:<br> 
 						<select id="pettype-txt" required>
 							<option disabled selected value> -- select an option -- </option>
 	  						<option value="dog">Dog</option>
 	  						<option value="cat">Cat</option>
 						</select>
 					</label><br>
-					<!-- breed is fine placeholder of Don't Know -->
 					<label for="petbreed-txt">Pet breed:<br> <input type="text" id="petbreed-txt" placeholder="Don't Know is fine too">
 					</label><br>
 
@@ -110,8 +109,9 @@
 	  						<option value="true">yes</option>
 	  						<option value="false">no</option>
 						</select></label><br>
-					<label for="behaviorother">Are they other behavior quirks?<br><input type="text" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat "></label><br>
-					<input type="submit" value="Create New Pet">
+					<label for="behaviorother">Are they other behavior quirks?<br>
+						<textarea cols="40" rows="5" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea><br>
+					<input class="green white-txt" type="submit" value="Create New Pet">
 				</fieldset>
 			</form>
 		</section>

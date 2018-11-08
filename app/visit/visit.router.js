@@ -40,8 +40,7 @@ visitRouter.post('/', jwtPassportMiddleware, (req, res) => {
 });
 //retreive's all visit plans regardless of authentication
 visitRouter.get('/all', (req, res) => {
-	console.log(user)
-	Visit.find({user:req.user.id})
+	Visit.find()
 		.then(visits => {
 
 			return res.status(HTTP_STATUS_CODES.OK).json(

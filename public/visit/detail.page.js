@@ -10,13 +10,14 @@ function onReady() {
     HTTP.updateAuthenticatedUI();
     STATE.visitId = ETC.getQueryStringParam("id");
     STATE.authUser = CACHE.getAuthenticatedUserFromCache();
-
-    HTTP.getVisitById({
-        visitId: STATE.visitId,
-        onSuccess: RENDER.renderVisitDetails,
-    });
-    $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
+    if(STATE.authUser) {
+        HTTP.getVisitById({
+            visitId: STATE.visitId,
+            onSuccess: RENDER.renderVisitDetails
+        });
+    }
     $("#visit-details").on("click", "#edit-visit-btn", onEditVisitBtnClick)
+    $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
 }
 
 function onEditVisitBtnClick(event) {

@@ -16,8 +16,11 @@ function onPageLoad() {
         });
     }
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
-    $("#visit-list").on("click", ".visit-card", onVisitCardClick)
-    $("#visit-list").on("click", "#delete-visit", deleteVisitBtnClick)
+    $("#visit-list").on("click", ".visit-card", onVisitCardClick);
+    $("#visit-list").on("click", "#delete-visit", deleteVisitBtnClick);
+    $("#visit-list")
+        .on("mouseenter", ".visit-card", function(){ $(this).addClass("border"); })
+        .on('mouseleave', ".visit-card", function(){ $(this).removeClass("border"); });
 }
 
 function updateAuthenticatedUI() {
@@ -39,7 +42,7 @@ function updateAuthenticatedUI() {
 }
 
 function onVisitCardClick(event) {
-    const visitId =$(event.currentTarget).attr("data-visit-id");
+    const visitId = $(event.currentTarget).attr("data-visit-id");
     window.open(`/visit/detail.html?id=${visitId}`, "_self");
 }
 

@@ -9,7 +9,7 @@
     box-sizing: border-box;
     text-decoration: none;
     background: white;
-    color: black;
+    color: #595959;
 }
 html {
     font-family: 'Roboto Mono', monospace, Arial, Helvetica, sans-serif;
@@ -60,31 +60,82 @@ nav{
     margin: 5%;
 }
 
-#home-btn button {
-    margin-top: 10px;
-    padding: 1em;
+#visit-host {
+    display: inline-flex;
+    margin: 1em 1em;
 }
 
+#visit-host a{
+    
+}
 
 a {
     color: #1f6fb9;
 }
-
-a:hover {
-    background-color: #86CD82;
+#pet-vet {
+    display: inline-flex;
+    margin: 1em;
 }
-.visit-card {
-    border: 2px solid #86CD82;
+a:hover {
+    border: 2px solid;
+    background-color: #9b4aca;
+    color: white;
+}
+form label:hover{
+    font-weight: bold;
+}
+.visit-card ul li:hover {
+    font-weight: bold;
+    color: black;
+}
+
+.pet-card ul li:hover{
+    font-weight: bold;
+}
+
+#pet-profile ul li:hover {
+    font-weight: bold;
+}
+.vet-card ul li:hover{
+    font-weight: bold;
+}
+#visit-details ul li:hover {
+    font-weight: bold;
 }
 .green {
-    background-color: #86CD82;
+    background-color: #00bf8f;
 }
 .blue {
-    background-color: #1f6fb9
+    background-color: #62699d;
 }
 .white-txt {
     color: white;
 }
 .black-txt {
     color: black
+}
+#pet-vet a {
+    padding: .5em;
+}
+.greenish {
+    background-color: #37a891;
+}
+
+.border {
+    border: 2px solid;
+}
+
+ul li {
+    margin 0 10px;
+}
+.bold {
+    font-weight: bold ;
+}
+
+.med-red {
+    background-color: #AA4465;
+}
+
+.right-marg {
+    margin-right: 5%;
 }
