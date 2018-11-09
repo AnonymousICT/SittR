@@ -38,7 +38,7 @@ function updateAuthenticatedUI() {
     if (authUser) {
         STATE.authUser = authUser;
         $(".user-profile").html(
-            `<li class="user-profile"><a href="/profile/detail.html">${
+            `<li class="user-profile"><a href="/profile.html">${
                 authUser.name
             }'s profile</a></li>`
             );
