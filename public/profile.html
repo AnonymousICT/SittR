@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SittR</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+	<h1>SittR</h1>
+	<main>
+		<nav>
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li class="user-profile"><a href="./public/profile/detail.html">User Profile</a></li>
+					<li><button class="green white-txt" id="logout-btn">Logout</button></li>
+				</ul>
+			</nav>
+		<section id="user-profile">
+			<h2 class="user-profile">User Profile</h2>
+			<p class="user-email">Your email:</p>
+		</section>
+		<section id="pet-vet">
+			<h4><a class="green white-txt" href="/pet/create.html">Add a pet</a></h4>
+			<h4><a class="blue white-txt" href="/vet/create.html">Add a vet</a></h4>
+		</section>
+		<section id="pet-list">
+			
+		</section>
+		<section id="vet-list">
+			
+		</section>
+		<section id="visit-list"></section>
+	</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../utilities/cache.module.js"></script>
+<script src="../utilities/render.module.js"></script>
+<script src="../utilities/http.module.js"></script>
+<script src="../utilities/etc.module.js"></script>
+<script type="text/javascript" src="profile.page.js"></script>
+</body>
+</html>
