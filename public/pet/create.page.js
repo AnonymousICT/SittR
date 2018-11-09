@@ -50,6 +50,13 @@ function onCreateSubmit(event) {
 
     HTTP.updateUsersPet({
         jwtToken: STATE.authUser.jwtToken,
-        newPet: newPet
+        newPet: newPet,
+        onSuccess: user => {
+            console.log("Pet has been added to user");
+        },
+        onError: err => {
+            alert("Internal Server Error (see console)");
+            console.error(err);
+        }
     })
 }

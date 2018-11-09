@@ -124,13 +124,10 @@ form label:hover{
 .border {
     border: 2px solid;
 }
-
-ul li {
-    margin 0 10px;
-}
 .bold {
-    font-weight: bold ;
+    font-weight: bold;
 }
+
 
 .med-red {
     background-color: #AA4465;
@@ -138,4 +135,7 @@ ul li {
 
 .right-marg {
     margin-right: 5%;
+}
+ul li {
+    margin 0 10px;
 }

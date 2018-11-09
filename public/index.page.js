@@ -29,7 +29,7 @@ function updateAuthenticatedUI() {
         STATE.authUser = authUser;
         $("#nav-greeting").html(`Welcome, ${authUser.name}`);
         $(".user-profile").html(
-            `<li class="user-profile"><a href="/profile/detail.html">${
+            `<li class="user-profile"><a href="/profile.html">${
                 authUser.name
             }'s profile</a></li>`
         );
