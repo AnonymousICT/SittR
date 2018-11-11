@@ -23,13 +23,13 @@ const petSchema = new mongoose.Schema({
 })
 
 petSchema.methods.serialize = function () {
-	let user;
+	let user=this.user;
 
-	if (typeof this.user.serialize === 'function') {
-		user = this.user.serialize();
-	} else {
-		user = this.user;
-	}
+	// if (typeof this.user.serialize === 'function') {
+	// 	user = this.user.serialize();
+	// } else {
+	// 	user = this.user;
+	// }
 	return {
 		id: this._id,
 		user: user,

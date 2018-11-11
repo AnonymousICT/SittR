@@ -26,7 +26,7 @@ function onCreateSubmit(event) {
         newVet: newVet,
         onSuccess: vet => {
             alert("Vet has been added to your profile! redirecting...");
-            window.open(`/profile/detail.html`, "_self");
+            window.open(`/profile.html`, "_self");
         },
         onError: err => {
             alert("Internal Server Error (see console)");

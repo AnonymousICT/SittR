@@ -5,6 +5,7 @@ const petRouter = express.Router();
 const { HTTP_STATUS_CODES } = require('../config.js');
 const { jwtPassportMiddleware } = require('../auth/auth.strategy');
 const { Pet, PetJoiSchema } = require('./pet.model.js');
+const { User, UserJoiSchema} = require('../user/user.model.js');
 
 
 //creating the user's pet
@@ -29,26 +30,17 @@ petRouter.post('/', jwtPassportMiddleware, (req, res) => {
 
     Pet.create(newPet)
         .then(createdPet => {
-            return res.status(HTTP_STATUS_CODES.CREATED).json(createdPet.serialize());
+            User.findOne({_id:req.user.id}).then((user)=>{
+                user.pets.push(createdPet._id);
+                user.save((err,user,rows)=>{
+                    return res.status(HTTP_STATUS_CODES.CREATED).json(createdPet.serialize());
+                });
+              });
         })
         .catch(error => {
             return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         }); 
 });
-
-//retreive's all pets regardless of authentication
-// petRouter.get('/all', (req, res) => {
-//     Pet.find()
-//         .then(pets => {
-
-//             return res.status(HTTP_STATUS_CODES.OK).json(
-//                 pets.map(pet => pet.serialize())
-//             );
-//         })
-//         .catch(error => {
-// 			return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
-// 		})
-// })
 
 //retreive the user's pet
 petRouter.get('/', jwtPassportMiddleware, (req, res) => {
@@ -118,13 +110,21 @@ petRouter.put('/:petid', jwtPassportMiddleware, (req, res)=> {
 
 //delete pet by id
 petRouter.delete('/:petid', jwtPassportMiddleware, (req, res)=>{
-    Pet.findByIdAndDelete(req.params.petid)
+    User.findOne({pets: req.params.petid})
+    .then((user)=>{
+    user.pets = user.pets.filter((pet)=>pet!=req.params.petid);
+    user.save((err,doc,num)=>{
+        Pet.findByIdAndDelete(req.params.petid)
         .then(() => {
             return res.status(HTTP_STATUS_CODES.NO_CONTENT).end();
         })
         .catch(error => {
             return res.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
         });
+    });
+  })
+  .catch((err)=>res.send(err));
+    
 });
 
 

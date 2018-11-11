@@ -45,10 +45,14 @@ function renderAllVisits(visits) {
     $("#visit-list").html(visitsHtml);
 
     function visitToHtml(visit) {
+        let visitSummary = visit.visitSummary;
+        if (visitSummary.length > 50) {
+            visitSummary = `${visit.visitSummary.substring(0, 50)}...`
+        }
         return `
         <div class ="visit-card" data-visit-id="${visit.id}">
 			<ul>
-                <li>Visit Summary: ${visit.visitSummary}</li>
+                <li>Visit Summary: ${visitSummary}</li>
                 <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
                 <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
                 <li>Offering Price: ${visit.visitPrice}</li>
@@ -80,14 +84,14 @@ function renderVisits(visits) {
 
 function renderVisitDetails(visit) {
     $("#visit-details").html(`
-    <a href="/profile/detail.html">back to profile...</a><br>
+    <a href="/profile.html">back to profile...</a><br>
     <button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>
     <h3>Contact ${visit.user.email} for more details!</h3>
     <ul>
     <li><span class="bold">${visit.user.username}</span> needs pet hosting between  <span class="bold">${visit.visitDateStart.slice(0, 10)}</span> - <span class="bold">${visit.visitDateEnd.slice(0, 10)}</span></li>
     <li><span class="bold">Visit Summary:</span> ${visit.visitSummary}</li>
     <li> <span class="bold">${visit.user.username}</span> is willing to pay <span class="bold">$ ${visit.visitPrice} /per night</span> (all pricing is up for discussion)</li>
-    <li><span class="bold">${visit.user.username}</span> would prefer <span class="bold"> ${visit.visitLocation}</span></li>
+    <li>Location?: <span class="bold"> ${visit.visitLocation}</span></li>
     <li><span class="bold"> Care Instructions:</span> ${visit.visitCareInstructions}</li>
     <li>Visit created: ${visit.timestamps.slice(0, 10)}</li>
     </ul>

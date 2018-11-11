@@ -68,17 +68,5 @@ userRouter.get('/:userid', (request, response) => {
         });
 });
 
-userRouter.put('/:userid', (request, response) => {
-    console.log(request.body);
-    const userUpdate = {
-        $push:{pets: request.body.pets }  
-    }
-    User.findByIdAndUpdate({ _id: request.params.userid}, userUpdate)
-        .then(user => {
-            return response.status(HTTP_STATUS_CODES.OK).json(user.serialize());
-        })
-        .catch(error => {
-            return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(error);
-        });
-});
+
 module.exports = { userRouter };

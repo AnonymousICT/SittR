@@ -1,7 +1,6 @@
 const HTTP_MODULE = {
     signupUser,
     loginUser,
-    updateUsersPet,
     getUserPets,
     getPetById,
     createPet,
@@ -81,27 +80,6 @@ function loginUser(options) {
             }
         }
     });
-}
-
-function updateUsersPet(options) {
-    const { jwtToken, petId, newPet, onSuccess, onError } = options;
-    $.ajax({
-        type: "PUT",
-        url: `api/user/${petId}`,
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify(newPet),
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", `Bearer ${jwtToken}`);
-        },
-        success: onSuccess,
-        error: err => {
-            console.error(err);
-            if (onError) {
-                onError(err);
-            }
-        }
-    })
 }
 
 //pet stuff
