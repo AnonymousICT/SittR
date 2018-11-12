@@ -12,7 +12,7 @@ const RENDER_MODULE = {
 window.RENDER_MODULE = RENDER_MODULE;
 
 function renderVetProfile(vets) {
-    const vetsHtml = vets.map(vetToHtml).join("<hr/>");
+    const vetsHtml = vets.map(vetToHtml).join("<br/>");
     $("#vet-list").html(vetsHtml);
 
     function vetToHtml(vet) {
@@ -41,7 +41,7 @@ function renderVetEdit(vet) {
 }
 
 function renderAllVisits(visits) {
-    const visitsHtml = visits.map(visitToHtml).join("<hr/>");
+    const visitsHtml = visits.map(visitToHtml).join("<br/>");
     $("#visit-list").html(visitsHtml);
 
     function visitToHtml(visit) {
@@ -57,6 +57,7 @@ function renderAllVisits(visits) {
                 <li>Date End: ${visit.visitDateEnd.slice(0, 10)}</li>
                 <li>Offering Price: ${visit.visitPrice}</li>
                 <li>Date Created: ${visit.timestamps.slice(0, 10)}</li>
+                <li class="blue-txt bold">Click to read more</li>
             </ul>
 		</div>
 		`;
@@ -64,7 +65,7 @@ function renderAllVisits(visits) {
 }
 
 function renderVisits(visits) {
-    const visitsHtml = visits.map(visitToHtml).join("<hr/>");
+    const visitsHtml = visits.map(visitToHtml).join("<br/>");
     $("#visit-list").html(visitsHtml);
 
     function visitToHtml(visit) {
@@ -84,7 +85,7 @@ function renderVisits(visits) {
 
 function renderVisitDetails(visit) {
     $("#visit-details").html(`
-    <a href="/profile.html">back to profile...</a><br>
+    <a bref="/profile.html">back to profile...</a><br>
     <button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>
     <h3>Contact ${visit.user.email} for more details!</h3>
     <ul>
@@ -120,7 +121,7 @@ function renderVisitEdit(visit) {
 }
 
 function renderPetList(pets) {
-    const petsHtml = pets.map(petToHtml).join("<hr/>");
+    const petsHtml = pets.map(petToHtml).join("<br/>");
     $("#pet-list").html(petsHtml);
 
     function petToHtml(pet) {

@@ -28,10 +28,32 @@ li {
     margin-top: 1em;
     padding: 1em 2em;
 }
+fieldset {
+    /* padding: .5em; */
+    margin: 10px 0;
+}
+
+#logout-btn {
+    padding: .5em;
+}
+button, input[type=submit] {
+    border-radius: 5px;
+    padding: .5em;
+}
+input[type=submit] {
+    margin-top: 10px;
+}
 nav li {
     display: inline-block;
 }
-
+h2 {
+    margin: 1em 0;
+}
+#new-vet-form label {
+    display: block;
+    margin: 1em 0;
+}
+#new-
 #create-account {
     margin-top: 1em;
     padding: 1em 2em;
@@ -45,10 +67,6 @@ h1 {
 }
 #sign-up-form {
     text-align: right;
-}
-
-label {
-    margin-bottom: 10px;
 }
 
 nav{
@@ -84,9 +102,12 @@ a:hover {
 form label:hover{
     font-weight: bold;
 }
+.visit-card ul li {
+    
+}
 .visit-card ul li:hover {
     font-weight: bold;
-    color: black;
+    color: #00bf8f;
 }
 
 .pet-card ul li:hover{
@@ -128,7 +149,6 @@ form label:hover{
     font-weight: bold;
 }
 
-
 .med-red {
     background-color: #AA4465;
 }
@@ -136,6 +156,25 @@ form label:hover{
 .right-marg {
     margin-right: 5%;
 }
-ul li {
-    margin 0 10px;
+/* ul li {
+    margin: 0 10px;
+} */
+.round-btn {
+    border-radius: 5px;
+}
+
+.btn-padding {
+    padding: .5em;
+}
+.small-font {
+    font-size: small;
+}
+#new-visit-form input {
+    margin-bottom: 10px;
+}
+.green-txt {
+    color: #00bf8f;
+}
+.blue-txt {
+    color: #62699d;
 }
