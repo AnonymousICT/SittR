@@ -25,7 +25,6 @@ function onVisitCreateSubmit(event) {
         visitCareInstructions: $("#care-instructions").val(),
         visitSummary: $("#visit-summary").val()
     };
-    console.log(newVisit);
     HTTP.createVisit({
         jwtToken: STATE.authUser.jwtToken,
         newVisit: newVisit,
