@@ -96,33 +96,17 @@ a {
 }
 a:hover {
     border: 2px solid;
-    background-color: #9b4aca;
+    background-color: #1f6fb9;
     color: white;
 }
 form label:hover{
     font-weight: bold;
 }
-.visit-card ul li {
-    
-}
-.visit-card ul li:hover {
+ul li:hover {
     font-weight: bold;
     color: #00bf8f;
 }
 
-.pet-card ul li:hover{
-    font-weight: bold;
-}
-
-#pet-profile ul li:hover {
-    font-weight: bold;
-}
-.vet-card ul li:hover{
-    font-weight: bold;
-}
-#visit-details ul li:hover {
-    font-weight: bold;
-}
 .green {
     background-color: #00bf8f;
 }
@@ -184,4 +168,7 @@ form label:hover{
 
 #visit-host a{
     margin: .25em;
+}
+#pet-profile li{
+    margin: 1em;
 }

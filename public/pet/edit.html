@@ -14,7 +14,7 @@
 				<ul>
 					<li><a href="../index.html">Home</a></li>
 					<li class="user-profile"><a href="/profile.html">User Profile</a></li>
-					<li><button id="logout-btn">Logout</button></li>
+					<li><button class="green white-txt" id="logout-btn">Logout</button></li>
 				</ul>
 		</nav>
 		<a href="/profile.html">back to profile...</a>
@@ -80,7 +80,8 @@
 					</label><br>
 
 					<!-- make the text box larger -->
-					<label for="petdiet-txt">Dietary Restrictions?: <br><input type="text" id="petdiet-txt" placeholder="My dog is allergic to oranges, my cat only eats wet food etc.">
+					<label for="petdiet-txt">Dietary Restrictions?: <br>
+						<textarea cols="40" rows="3" id="petdiet-txt" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea>
 					</label><br>
 
 
@@ -111,8 +112,9 @@
 	  						<option value="true">yes</option>
 	  						<option value="false">no</option>
 						</select></label><br>
-					<label for="behaviorother">Are they other behavior quirks?<br><input type="text" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat "></label><br>
-					<input type="submit" value="Edit Pet Details">
+						<label for="behaviorother">Are they other behavior quirks?<br>
+							<textarea cols="40" rows="5" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea></label><br>
+					<input class="med-red white-txt" type="submit" value="Edit Pet Details">
 				
 			</fieldset>
 		</form>

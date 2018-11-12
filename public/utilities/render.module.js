@@ -144,7 +144,7 @@ function renderPetDetails(pet) {
 		<button class="med-red white-txt" id="edit-pet-btn">Edit ${pet.petName}'s info</button>
 		<h2>${pet.petName} the ${pet.petType}</h2>
 		<ul>
-				<li>${pet.petBreed}</li>
+				<li>Breed: ${pet.petBreed}</li>
 				<li>${pet.petAge} years old</li>
 				<li>Size: ${pet.petSize}</li>
 				<li>${pet.petWeight} lbs</li>
