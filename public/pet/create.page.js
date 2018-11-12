@@ -39,9 +39,8 @@ function onCreateSubmit(event) {
         jwtToken: STATE.authUser.jwtToken,
         newPet: newPet,
         onSuccess: pet => {
-            // alert("Pet has been added to your profile! redirecting...");
-            console.log(newPet);
-            // window.open("../profile.html", "_self");
+            alert("Pet has been added to your profile! redirecting...");
+            window.open("../profile.html", "_self");
         },
         onError: err => {
             alert("Internal Server Error (see console)");
