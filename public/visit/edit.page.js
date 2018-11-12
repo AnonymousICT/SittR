@@ -35,10 +35,12 @@ function onEditVisitSubmit(event) {
         visitId: STATE.visitId,
         newVisit: newVisit,
         onSuccess: visit => {
+            console.log("visit changes saved successfuly, redirecting...");
             alert("visit changes saved successfuly, redirecting...");
             window.open(`/visit/detail.html?id=${STATE.visitId}`, "_self");
         },
         onError: err => {
+            console.log(err);
             console.log(
                 "There was a problem editing this visit, please try again later."
             );

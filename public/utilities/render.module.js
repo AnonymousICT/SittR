@@ -84,10 +84,15 @@ function renderVisits(visits) {
 }
 
 function renderVisitDetails(visit) {
-    $("#visit-details").html(`
-    <a href="/index.html">back to home...</a><br>
-    <button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>
-    <h3>Contact ${visit.user.email} for more details!</h3>
+    let htmlStr = `<a href="/index.html">back to home...</a><br>`;
+    
+    if (STATE.authUser.userId === visit.user.id) {
+        htmlStr += `<button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>`;
+    } else {
+        htmlStr += `<h3>Contact ${visit.user.email} for more details!</h3>`;
+    }
+    
+    htmlStr += `
     <ul>
     <li><span class="bold">${visit.user.username}</span> needs pet hosting between  <span class="bold">${visit.visitDateStart.slice(0, 10)}</span> - <span class="bold">${visit.visitDateEnd.slice(0, 10)}</span></li>
     <li><span class="bold">Visit Summary:</span> ${visit.visitSummary}</li>
@@ -96,7 +101,10 @@ function renderVisitDetails(visit) {
     <li><span class="bold"> Care Instructions:</span> ${visit.visitCareInstructions}</li>
     <li>Visit created: ${visit.timestamps.slice(0, 10)}</li>
     </ul>
-    `);
+    `;
+
+    $("#visit-details").html(htmlStr);
+
 }
 
 function renderVisitEdit(visit) {
