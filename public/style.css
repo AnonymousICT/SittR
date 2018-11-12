@@ -178,3 +178,10 @@ form label:hover{
 .blue-txt {
     color: #62699d;
 }
+#pet-vet a {
+    margin: .25em;
+}
+
+#visit-host a{
+    margin: .25em;
+}

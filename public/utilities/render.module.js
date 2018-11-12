@@ -85,7 +85,7 @@ function renderVisits(visits) {
 
 function renderVisitDetails(visit) {
     $("#visit-details").html(`
-    <a bref="/profile.html">back to profile...</a><br>
+    <a href="/index.html">back to home...</a><br>
     <button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>
     <h3>Contact ${visit.user.email} for more details!</h3>
     <ul>
