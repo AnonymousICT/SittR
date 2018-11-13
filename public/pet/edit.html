@@ -12,7 +12,7 @@
 	<main>
 		<nav>
 				<ul>
-					<li><a href="../index.html">Home</a></li>
+					<li><a href="../index.html">Home</a> | </li> 
 					<li class="user-profile"><a href="/profile.html">User Profile</a></li>
 					<li><button class="green white-txt" id="logout-btn">Logout</button></li>
 				</ul>
@@ -24,98 +24,100 @@
 				<label for="petname-txt">Pet name:<br> 
 					<input type="text" id="petname-txt" required>
 				</label><br>
-					<!-- dog or cat -->
+				
 				<label for="pettype-txt">Pet type:<br>
 					<select id="pettype-txt" required>
 						<option disabled selected value> -- select an option -- </option>
   						<option value="dog">Dog</option>
   						<option value="cat">Cat</option>
-					</select></label><br>
-					<!-- breed is fine placeholder of Don't Know -->
+					</select>
+				</label><br>
+				
 				<label for="petbreed-txt">Pet breed:<br> 
 					<input type="text" id="petbreed-txt" placeholder="Don't Know is fine too">
 				</label><br>
 
-					<label for="petage-txt">Age:<br> <input type="number" id="petage-txt" placeholder="pets age < 1: use 1">
-					</label><br>
-					
-					<label for="petsize-txt">What size would you consider your pet? cats = small:<br> 
-						<select id="petsize-txt" required>
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="extra small">extra small</option>
-	  						<option value="small">small</option>
-	  						<option value="medium">medium</option>
-	  						<option value="large">large</option>
-	  						<option value="extra large">extra large</option>
-						</select>
-					</label><br>
-
-					<label for="petweight-txt">How much does your pet weigh?: <br><input type="number" id="petweight-txt" placeholder="pets age < 1: use 1"> lbs
-					</label><br>
-
-					<label for="petactivity-txt">How active is your pet? 1 = turtle 10 = rabbit:<br>
-						<select id="petactivity-txt" required>
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="1">1</option>
-	  						<option value="2">2</option>
-	  						<option value="3">3</option>
-	  						<option value="4">4</option>
-	  						<option value="5">5</option>
-	  						<option value="6">6</option>
-	  						<option value="7">7</option>
-	  						<option value="8">8</option>
-	  						<option value="9">9</option>
-	  						<option value="10">10</option>
-						</select>
-					</label><br>
-
-					<label for="petintact-txt">Is your pet neutered/spayed?:<br> 
-						<select id="petintact-txt" required>
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="intactM">Intact Male</option>
-	  						<option value="intactF">Intact Female</option>
-	  						<option value="neutered">Neutered</option>
-	  						<option value="spayed">Spayed</option>
-						</select>
-					</label><br>
-
-					<!-- make the text box larger -->
-					<label for="petdiet-txt">Dietary Restrictions?: <br>
-						<textarea cols="40" rows="3" id="petdiet-txt" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea>
-					</label><br>
-
-
-					<label for="behaviordogs">Is your pet good with other dogs?<br>
-						<select id="behaviordogs">
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
-						</select>
-					</label><br>
-					<label for="behaviorcats">Is your pet good with other cats?<br>
-						<select id="behaviorcats">
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
-						</select>
-					</label><br>
-					<label for="behaviorchildren">Is your pet good with small children?<br>
-						<select id="behaviorchildren">
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
-						</select>
-					</label><br>
-					<label for="behaviormiscpets">Is your pet good with other kinds of pets? (snakes, fish, hamsters, etc.) <br>
-						<select id="behaviormiscpets">
-							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
-						</select></label><br>
-						<label for="behaviorother">Are they other behavior quirks?<br>
-							<textarea cols="40" rows="5" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea></label><br>
-					<input class="med-red white-txt" type="submit" value="Edit Pet Details">
+				<label for="petage-txt">Age:<br>
+					<input type="number" id="petage-txt" placeholder="pets age < 1: use 1">
+				</label><br>
 				
+				<label for="petsize-txt">What size would you consider your pet? cats = small:<br> 
+					<select id="petsize-txt" required>
+						<option disabled selected value> -- select an option -- </option>
+						<option value="extra small">extra small</option>
+						<option value="small">small</option>
+						<option value="medium">medium</option>
+						<option value="large">large</option>
+						<option value="extra large">extra large</option>
+					</select>
+				</label><br>
+
+				<label for="petweight-txt">How much does your pet weigh?:<br>
+					<input type="number" id="petweight-txt" placeholder="pets age < 1: use 1"> lbs
+				</label><br>
+
+				<label for="petactivity-txt">How active is your pet? 1 = turtle 10 = rabbit:<br>
+					<select id="petactivity-txt" required>
+						<option disabled selected value> -- select an option -- </option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</label><br>
+
+				<label for="petintact-txt">Is your pet neutered/spayed?:<br> 
+					<select id="petintact-txt" required>
+						<option disabled selected value> -- select an option -- </option>
+						<option value="intactM">Intact Male</option>
+						<option value="intactF">Intact Female</option>
+						<option value="neutered">Neutered</option>
+						<option value="spayed">Spayed</option>
+					</select>
+				</label><br>
+
+				<label for="petdiet-txt">Dietary Restrictions?: <br>
+					<textarea cols="40" rows="3" id="petdiet-txt" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea>
+				</label><br>
+
+				<label for="behaviordogs">Is your pet good with other dogs?<br>
+					<select id="behaviordogs">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="true">yes</option>
+						<option value="false">no</option>
+					</select>
+				</label><br>
+				<label for="behaviorcats">Is your pet good with other cats?<br>
+					<select id="behaviorcats">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="true">yes</option>
+						<option value="false">no</option>
+					</select>
+				</label><br>
+				<label for="behaviorchildren">Is your pet good with small children?<br>
+					<select id="behaviorchildren">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="true">yes</option>
+						<option value="false">no</option>
+					</select>
+				</label><br>
+				<label for="behaviormiscpets">Is your pet good with other kinds of pets? (snakes, fish, hamsters, etc.) <br>
+					<select id="behaviormiscpets">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="true">yes</option>
+						<option value="false">no</option>
+					</select>
+				</label><br>
+				<label for="behaviorother">Are they other behavior quirks?<br>
+					<textarea cols="40" rows="5" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea>
+				</label><br>
+				<input class="med-red white-txt" type="submit" value="Edit Pet Details">
 			</fieldset>
 		</form>
 	</main>

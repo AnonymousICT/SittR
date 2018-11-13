@@ -24,15 +24,6 @@ function onReady() {
     $("#pet-list").on("click", ".pet-card", onPetCardClick);
     $("#vet-list").on("click", ".vet-card", onVetCardClick);
     $("#vet-list").on("click", ".delete-vet-btn", deleteVetBtnClick);
-
-    $("#pet-list")
-        .on("mouseenter", ".pet-card", function(){ $(this).addClass("border"); })
-        .on('mouseleave', ".pet-card", function(){ $(this).removeClass("border"); });
-
-    $("#vet-list")
-        .on("mouseenter", ".vet-card", function(){ $(this).addClass("border"); })
-        .on('mouseleave', ".vet-card", function(){ $(this).removeClass("border"); });
-   
 }
 
 function onLogoutBtnClick(event) {

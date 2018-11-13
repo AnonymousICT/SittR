@@ -13,9 +13,7 @@ function onReady() {
     })
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
     $("#visit-list").on("click", ".visit-card", onVisitCardClick);
-    $("#visit-list")
-        .on("mouseenter", ".visit-card", function(){ $(this).addClass("border"); })
-        .on('mouseleave', ".visit-card", function(){ $(this).removeClass("border"); });
+
 }
 
 function onVisitCardClick(event) {

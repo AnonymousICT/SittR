@@ -17,7 +17,7 @@ function renderVetProfile(vets) {
 
     function vetToHtml(vet) {
         return `
-		<div class ="vet-card" data-vet-id="${vet.id}">
+		<div class ="card vet-card" data-vet-id="${vet.id}">
 			<ul>
 				<li>${vet.vetName}</li>
 				<li>${vet.vetAddress}</li>
@@ -50,7 +50,7 @@ function renderAllVisits(visits) {
             visitSummary = `${visit.visitSummary.substring(0, 50)}...`
         }
         return `
-        <div class ="visit-card" data-visit-id="${visit.id}">
+        <div class="card visit-card" data-visit-id="${visit.id}">
 			<ul>
                 <li>Visit Summary: ${visitSummary}</li>
                 <li>Date Start: ${visit.visitDateStart.slice(0, 10)}</li>
@@ -70,7 +70,7 @@ function renderVisits(visits) {
 
     function visitToHtml(visit) {
         return `
-        <div class ="visit-card" data-visit-id="${visit.id}">
+        <div class="card visit-card" data-visit-id="${visit.id}">
 			<ul>
                 <li><span class="bold">Date Start:</span> ${visit.visitDateStart.slice(0, 10)}</li>
                 <li><span class="bold">Date End:</span> ${visit.visitDateEnd.slice(0, 10)}</li>
@@ -93,15 +93,32 @@ function renderVisitDetails(visit) {
     }
     
     htmlStr += `
-    <ul>
-    <li><span class="bold">${visit.user.username}</span> needs pet hosting between  <span class="bold">${visit.visitDateStart.slice(0, 10)}</span> - <span class="bold">${visit.visitDateEnd.slice(0, 10)}</span></li>
-    <li><span class="bold">Visit Summary:</span> ${visit.visitSummary}</li>
-    <li> <span class="bold">${visit.user.username}</span> is willing to pay <span class="bold">$ ${visit.visitPrice} /per night</span> (all pricing is up for discussion)</li>
-    <li>Location?: <span class="bold"> ${visit.visitLocation}</span></li>
-    <li><span class="bold"> Care Instructions:</span> ${visit.visitCareInstructions}</li>
-    <li>Visit created: ${visit.timestamps.slice(0, 10)}</li>
-    </ul>
+    <h2>${visit.user.username}'s SittR Request</h2>
+    <table class="card">
+        <tr>
+            <td>Visit Dates:</td>
+            <td>${visit.visitDateStart.slice(0, 10)} - ${visit.visitDateEnd.slice(0, 10)}</td>
+        </tr>
+        <tr>
+            <td>Visit Summary:</td>
+            <td>${visit.visitSummary}</td>
+        </tr>
+        <tr>
+            <td>Pay Rate:</td>
+            <td>$ ${visit.visitPrice} per night <span class="small-font">(all pricing is up for discussion)</span></td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td>${visit.visitLocation}</td>
+        </tr>
+        <tr>
+            <td> Care Instructions:</td>
+            <td>${visit.visitCareInstructions}</td>
+        </tr>
+    </table>
+    <p class="small-font">Visit created: ${visit.timestamps.slice(0, 10)}</p>
     `;
+
 
     $("#visit-details").html(htmlStr);
 
@@ -134,7 +151,7 @@ function renderPetList(pets) {
 
     function petToHtml(pet) {
         return `
-		<div class = "pet-card" data-pet-id="${pet.id}">
+		<div class="card pet-card" data-pet-id="${pet.id}">
 			<h3>${pet.petName} the ${pet.petType}</h3>
 			<ul>
 				<li>${pet.petBreed}</li>

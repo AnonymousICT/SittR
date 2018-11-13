@@ -18,9 +18,6 @@ function onPageLoad() {
     $("#logout-btn").on("click", HTTP.onLogoutBtnClick);
     $("#visit-list").on("click", ".visit-card", onVisitCardClick);
     $("#visit-list").on("click", "#delete-visit", deleteVisitBtnClick);
-    $("#visit-list")
-        .on("mouseenter", ".visit-card", function(){ $(this).addClass("border"); })
-        .on('mouseleave', ".visit-card", function(){ $(this).removeClass("border"); });
 }
 
 function updateAuthenticatedUI() {

@@ -12,7 +12,7 @@
 	<main>
 		<nav>
 			<ul>
-				<li><a href="../index.html">Home</a></li>
+				<li><a href="../index.html">Home</a> | </li>
 				<li class="user-profile"><a href="/profile.html">User Profile</a></li>
 				<li><button class= "green white-txt" id="logout-btn">Logout</button></li>
 			</ul>
@@ -25,8 +25,8 @@
 						<textarea cols="40" rows="5" type="text" id="visit-summary" 
 						placeholder="EXAMPLES: 
 						URGENT: I need to visit my sick parent out of town for 3 days. 
-						my wife and I are celebrating our 10th anniversary in Hawaii. 
-						We REALLY need the time away negotiable with pricing" ></textarea>
+						My wife and I are celebrating our 10th anniversary in Hawaii. 
+						We REALLY need the time away. Negotiable with pricing." ></textarea>
 					</label><br>
 					<label for="date-start-txt">
 						When do you need someone to watch your pet?<br>
@@ -40,16 +40,14 @@
 						Would you prefer someone to host your pet or someone to visit your home?<br>
 						<select id="location-txt">
 							<option disabled selected value> -- select an option -- </option>
-  							<option value="Please host my pet">Please host my pet</option>
-  							<option value="Just a visit to my home">Just a visit to my home</option>
+							<option value="Owner's place">Owner's place</option>
+							<option value="SittR's place">SittR's place</option>
 						</select>
 					</label><br>
 					<label for="visit-price">
 						How much are you willing to pay per day? 
-						<p>
-							<span class="small-font">
-									Price suggestion: $35 per overnight stay and $25 per visit urgent needs $50 per day
-							</span> <br>
+						<p class="small-font">
+							Price suggestion: $35 per overnight stay and $25 per visit; urgent needs $50 per day
 						</p>
 						$ <input type="number" id="visit-price" placeholder="30"> per night
 					</label><br>
@@ -57,10 +55,11 @@
 					<label for="care-instructions">What do you need the host to do for your pet?<br>
 						<textarea  cols="40" rows="5" id="care-instructions" placeholder="Rex needs 3 walks a day and 2 meals. He is currently on anti-biotics once a day."></textarea><br>
 					</label>
-					<input class="blue white-txt" type="submit" value="Submit new visit post">
+					<input class="blue white-txt" type="submit" value="Submit New Visit Post">
 				</fieldset>
 			</form>
 		</section>
+		<a href="/index.html">back to home...</a>
 	</main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../utilities/cache.module.js"></script>

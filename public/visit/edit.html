@@ -12,7 +12,7 @@
 	<main>
 		<nav>
 			<ul>
-				<li><a href="../index.html">Home</a></li>
+				<li><a href="../index.html">Home</a> | </li>
 				<li class="user-profile"><a href="/profile.html">User Profile</a></li>
 				<li><button class ="green white-txt"id="logout-btn">Logout</button></li>
 			</ul>
@@ -20,43 +20,41 @@
 		<section id="edit-visit">
 			<form id="edit-visit-form">
 				<fieldset>
-						<label for="visit-summary">
-								A quick summary of your needs<br>
-								<textarea cols="40" rows="5" type="text" id="visit-summary" 
-								placeholder="EXAMPLES: 
-								URGENT: I need to visit my sick parent out of town for 3 days. 
-								my wife and I are celebrating our 10th anniversary in Hawaii. 
-								We REALLY need the time away negotiable with pricing" ></textarea>
-							</label><br>
-						<label for="date-start-txt">
-							When do you need someone to watch your pet?<br>
-							<input type="date" id="date-start-txt">
+					<label for="visit-summary">
+						A quick summary of your needs<br>
+						<textarea cols="40" rows="5" type="text" id="visit-summary" 
+						placeholder="EXAMPLES: 
+						URGENT: I need to visit my sick parent out of town for 3 days. 
+						My wife and I are celebrating our 10th anniversary in Hawaii. 
+						We REALLY need the time away. Negotiable with pricing." ></textarea>
+					</label><br>
+					<label for="date-start-txt">
+						When do you need someone to watch your pet?<br>
+						<input type="date" id="date-start-txt">
+					</label><br>
+					<label for="date-end-txt">
+						When will you come home?<br>
+						<input type="date" id="date-end-txt">
+					</label><br>
+					<label for="location-txt">
+						Would you prefer someone to host your pet or someone to visit your home?<br>
+						<select id="location-txt">
+							<option disabled selected value> -- select an option -- </option>
+							<option value="Owner's place">Owner's place</option>
+  							<option value="SittR's place">SittR's place</option>
+						</select>
+					</label><br>
+					<label for="visit-price">
+						How much are you willing to pay per day? 
+						<p class="small-font">
+							Price suggestion: $35 per overnight stay and $25 per visit; urgent needs $50 per day
+						</p>
+						$ <input type="number" id="visit-price" placeholder="30"> per night
 						</label><br>
-						<label for="date-end-txt">
-							When will you come home?<br>
-							<input type="date" id="date-end-txt">
-						</label><br>
-						<label for="location-txt">
-							Would you prefer someone to host your pet or someone to visit your home?<br>
-							<select id="location-txt">
-								<option disabled selected value> -- select an option -- </option>
-								<option value="Please host my pet">Please host my pet</option>
-								<option value="Just a visit to my home">Just a visit to my home</option>
-							</select>
-						</label><br>
-						<label for="visit-price">
-								How much are you willing to pay per day? 
-								<p>
-									<span class="small-font">
-											Price suggestion: $35 per overnight stay and $25 per visit urgent needs $50 per day
-									</span> <br>
-								</p>
-								$ <input type="number" id="visit-price" placeholder="30"> per night
-							</label><br>
-						<label for="care-instructions">What do you need the host to do for your pet?<br>
-							<textarea  cols="40" rows="5" id="care-instructions" placeholder="Rex needs 3 walks a day and 2 meals. He is currently on anti-biotics once a day."></textarea><br>
-						</label>
-						<input class="med-red white-txt" type="submit" value="Edit visit">	
+					<label for="care-instructions">What do you need the host to do for your pet?<br>
+						<textarea cols="40" rows="5" id="care-instructions" placeholder="Rex needs 3 walks a day and 2 meals. He is currently on anti-biotics once a day."></textarea><br>
+					</label>
+					<input class="med-red white-txt" type="submit" value="Edit Visit">	
 				</fieldset>
 			</form>
 		</section>
