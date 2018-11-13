@@ -84,7 +84,7 @@ function renderVisits(visits) {
 }
 
 function renderVisitDetails(visit) {
-    let htmlStr = `<a href="/index.html">back to home...</a><br>`;
+    let htmlStr = ``;
     
     if (STATE.authUser.userId === visit.user.id) {
         htmlStr += `<button class="med-red white-txt" id="edit-visit-btn">Edit Visit Info</button>`;

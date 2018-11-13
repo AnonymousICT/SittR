@@ -17,7 +17,6 @@
 				<li><button class="green white-txt" id="logout-btn">Logout</button></li>
 			</ul>
 		</nav>
-		<a href="/profile.html">back to profile...</a>
 		<p>Tell us about your best friend!</p>
 		<section class="pet-profile">
 			<form id="new-pet-form">
@@ -33,7 +32,7 @@
 					</label><br>
 					<label for="petbreed-txt">Pet breed:<br> <input type="text" id="petbreed-txt" placeholder="Don't Know is fine too">
 					</label><br>
-
+					
 					<label for="petage-txt">Age:<br> <input type="number" id="petage-txt" placeholder="pets age < 1: use 1">
 					</label><br>
 					
@@ -47,10 +46,10 @@
 	  						<option value="extra large">extra large</option>
 						</select>
 					</label><br>
-
+					
 					<label for="petweight-txt">How much does your pet weigh?: <br><input type="number" id="petweight-txt" placeholder="pets age < 1: use 1"> lbs
 					</label><br>
-
+					
 					<label for="petactivity-txt">How active is your pet? 1 = turtle 10 = rabbit:<br>
 						<select id="petactivity-txt" required>
 							<option disabled selected value> -- select an option -- </option>
@@ -66,7 +65,7 @@
 	  						<option value="10">10</option>
 						</select>
 					</label><br>
-
+					
 					<label for="petintact-txt">Is your pet neutered/spayed?:<br> 
 						<select id="petintact-txt" required>
 							<option disabled selected value> -- select an option -- </option>
@@ -77,7 +76,6 @@
 						</select>
 					</label><br>
 
-					<!-- make the text box larger -->
 					<label for="petdiet-txt">Dietary Restrictions?: <br>
 						<textarea cols="40" rows="3" id="petdiet-txt" placeholder="Max is allergic to carrots. Fluffy only eats wet food"></textarea>
 					</label><br>
@@ -86,14 +84,14 @@
 					<label for="behaviordogs">Is your pet good with other dogs?<br>
 						<select id="behaviordogs">
 							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
+							<option value="true">yes</option>
+							<option value="false">no</option>
 						</select>
 					</label><br>
 					<label for="behaviorcats">Is your pet good with other cats?<br>
 						<select id="behaviorcats">
 							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
+							<option value="true">yes</option>
 	  						<option value="false">no</option>
 						</select>
 					</label><br>
@@ -107,19 +105,20 @@
 					<label for="behaviormiscpets">Is your pet good with other kinds of pets? (snakes, fish, hamsters, etc.) <br>
 						<select id="behaviormiscpets">
 							<option disabled selected value> -- select an option -- </option>
-	  						<option value="true">yes</option>
-	  						<option value="false">no</option>
+							<option value="true">yes</option>
+							<option value="false">no</option>
 						</select></label><br>
 					<label for="behaviorother">Are they other behavior quirks?<br>
 						<textarea cols="40" rows="5" id="behaviorother" placeholder="Max is ball aggressive, Fluffy the cat likes to knock glass off counters."></textarea></label><br>
-					<input class="green white-txt" type="submit" value="Create New Pet">
+						<input class="green white-txt" type="submit" value="Create New Pet">
 				</fieldset>
 			</form>
 		</section>
+		<a href="/profile.html">back to profile...</a>
 	</main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../utilities/cache.module.js"></script>
-<script src="../utilities/render.module.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="../utilities/cache.module.js"></script>
+	<script src="../utilities/render.module.js"></script>
 <script src="../utilities/http.module.js"></script>
 <script type="text/javascript" src="create.page.js"></script>
 </body>
