@@ -30,3 +30,27 @@ I also built this without a framework to gain a deeper understanding and appreci
 
 **Screenshots**
 * * *
+
+**Technologies Used**
+* * *
+
+* Html
+* CSS
+* Javascript
+* JQuery
+* Node.js
+* Express
+* bcryptjs
+* chai
+* chai-http
+* dotenv
+* joi
+* jsonwebtoken
+* mocha
+* mongoose
+* morgan
+* nodemon
+* passport
+* passport-jwt
+* passport-local
+
