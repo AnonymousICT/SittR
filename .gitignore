@@ -136,5 +136,7 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+# Screenshots folder
+screenshots
 
 # End of https://www.gitignore.io/api/node,macos,sublimetext
